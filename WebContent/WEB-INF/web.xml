@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <welcome-file-list>
+    <welcome-file>TrangChuKhachHangServlet</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>CheckEmailServlet</servlet-name>
+    <servlet-class>controller.CheckEmailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>KhachHangServlet</servlet-name>
+    <servlet-class>controller.KhachHangServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GioHangServlet</servlet-name>
+    <servlet-class>controller.GioHangServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>HoaDonDatHangServlet</servlet-name>
+    <servlet-class>controller.HoaDonDatHangServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>QuanLyDanhMucServlet</servlet-name>
+    <servlet-class>controller.QuanLyDanhMucServlet</servlet-class>
+  </servlet>
+   <!-- TuMV Start 10-05-2018 -->
+  <servlet>
+    <servlet-name>TrangChuKhachHangServlet</servlet-name>
+    <servlet-class>controller.TrangChuKhachHangServlet</servlet-class>
+  </servlet>
+  <!-- TuMV End 10-05-2018 -->
+  <servlet-mapping>
+    <servlet-name>CheckEmailServlet</servlet-name>
+    <url-pattern>/CheckEmailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>KhachHangServlet</servlet-name>
+    <url-pattern>/KhachHangServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GioHangServlet</servlet-name>
+    <url-pattern>/GioHangServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HoaDonDatHangServlet</servlet-name>
+    <url-pattern>/HoaDonDatHangServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QuanLyDanhMucServlet</servlet-name>
+    <url-pattern>/QuanLyDanhMucServlet</url-pattern>
+  </servlet-mapping>
+  <!-- TuMV Start 10-05-2018 -->
+  <servlet-mapping>
+    <servlet-name>TrangChuKhachHangServlet</servlet-name>
+    <url-pattern>/TrangChuKhachHangServlet</url-pattern>
+  </servlet-mapping>
+  <!-- TuMV End 10-05-2018 -->
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+</web-app>
