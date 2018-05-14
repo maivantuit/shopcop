@@ -23,6 +23,8 @@ public class HoaDon {
     private String phuongthucthanhToan;
     private String trangthaigiaoHang;
     private String diaChi;
+    private String soDienThoai;
+    private String nguoiNhan;
     private Timestamp ngayDat; // getdate()
     private int tongTien;
 
@@ -80,8 +82,24 @@ public class HoaDon {
         }        
         return maDH;
     }
+    
+    public String getNguoiNhan() {
+		return nguoiNhan;
+	}
 
-    public int getMaDH() {
+	public void setNguoiNhan(String nguoiNhan) {
+		this.nguoiNhan = nguoiNhan;
+	}
+
+	public String getSoDienThoai() {
+		return soDienThoai;
+	}
+
+	public void setSoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
+	}
+
+	public int getMaDH() {
         return maDH;
     }
 

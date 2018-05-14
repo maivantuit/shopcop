@@ -25,13 +25,15 @@ public class HoaDonDAO {
     public void insertHoaDon(HoaDon hoadon) {
         try {
             Connection connect = DBConnect.getConnection();
-            String sql = "insert into DonHang(MaKH,PhuongThucThanhToan,DiaChiGiaoHang,TongTien)\n"
-                    + "values(?,?,?,?)";
+            String sql = "insert into DonHang(MaKH,PhuongThucThanhToan,DiaChiGiaoHang,SoDienThoai,NguoiNhan,TongTien)\n"
+                    + "values(?,?,?,?,?,?)";
             PreparedStatement ps = connect.prepareStatement(sql);
             ps.setInt(1, hoadon.getMaKH());
             ps.setString(2, hoadon.getPhuongthucthanhToan());
             ps.setString(3, hoadon.getDiaChi());
-            ps.setDouble(4, hoadon.getTongTien());
+            ps.setString(4, hoadon.getSoDienThoai());
+            ps.setDouble(5, hoadon.getTongTien());
+            ps.setString(6, hoadon.getNguoiNhan());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Error query sql: " + ex.getMessage());
@@ -74,8 +76,7 @@ public class HoaDonDAO {
             while (rs.next()) {
                 HoaDon cthd = new HoaDon();
                 cthd.setMaDH(rs.getInt("MaDH"));
-                cthd.setMaKH(rs.getInt("MaKH"));
-                cthd.setMaND(rs.getInt("MaND"));
+                cthd.setMaKH(rs.getInt("MaKH"));               
                 cthd.setNgayDat(rs.getTimestamp("NgayDat"));
                 cthd.setPhuongthucthanhToan(rs.getString("PhuongThucThanhToan"));
                 cthd.setDiaChi(rs.getString("DiaChiGiaoHang"));
@@ -100,7 +101,7 @@ public class HoaDonDAO {
                 HoaDon cthd = new HoaDon();
                 cthd.setMaDH(rs.getInt("MaDH"));
                 cthd.setMaKH(rs.getInt("MaKH"));
-                cthd.setMaND(rs.getInt("MaND"));
+                
                 cthd.setNgayDat(rs.getTimestamp("NgayDat"));
                 cthd.setPhuongthucthanhToan(rs.getString("PhuongThucThanhToan"));
                 cthd.setDiaChi(rs.getString("DiaChiGiaoHang"));
