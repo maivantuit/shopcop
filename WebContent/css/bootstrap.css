@@ -5782,4 +5782,21 @@ button.close {
     display: none !important;
   }
 }
+/**Start 26/05/2018 TuMV ADD*/
+#quaylainhe {
+    background: #2f3e45;
+    color: #fff;
+    font-size: 1.1em;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-weight: 600;
+    /* padding: 0.5em 1em; */
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    /* margin: 0 0 0 7em; */
+}
+/**End TuMV ADD
 /*# sourceMappingURL=bootstrap.css.map */

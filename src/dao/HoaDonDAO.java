@@ -25,15 +25,14 @@ public class HoaDonDAO {
     public void insertHoaDon(HoaDon hoadon) {
         try {
             Connection connect = DBConnect.getConnection();
-            String sql = "insert into DonHang(MaKH,PhuongThucThanhToan,DiaChiGiaoHang,SoDienThoai,NguoiNhan,TongTien)\n"
+            String sql = "insert into DonHang(MaKH,DiaChiGiaoHang,SoDienThoai,NguoiNhan,TongTien)\n"
                     + "values(?,?,?,?,?,?)";
             PreparedStatement ps = connect.prepareStatement(sql);
-            ps.setInt(1, hoadon.getMaKH());
-            ps.setString(2, hoadon.getPhuongthucthanhToan());
-            ps.setString(3, hoadon.getDiaChi());
-            ps.setString(4, hoadon.getSoDienThoai());
-            ps.setDouble(5, hoadon.getTongTien());
-            ps.setString(6, hoadon.getNguoiNhan());
+            ps.setInt(1, hoadon.getMaKH());           
+            ps.setString(2, hoadon.getDiaChi());
+            ps.setString(3, hoadon.getSoDienThoai());
+            ps.setDouble(4, hoadon.getTongTien());
+            ps.setString(5, hoadon.getNguoiNhan());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Error query sql: " + ex.getMessage());
@@ -54,8 +53,7 @@ public class HoaDonDAO {
                 HoaDon hoadon = new HoaDon();
                 hoadon.setMaDH(rs.getInt("MaDH"));
                 hoadon.setMaKH(rs.getInt("MaKH"));
-                hoadon.setNgayDat(rs.getTimestamp("NgayDat"));
-                hoadon.setPhuongthucthanhToan(rs.getString("PhuongThucThanhToan"));
+                hoadon.setNgayDat(rs.getTimestamp("NgayDat"));               
                 hoadon.setDiaChi(rs.getString("DiaChiGiaoHang"));
                 hoadon.setTongTien(rs.getInt("TongTien"));
                 listhd.add(hoadon);                
@@ -77,8 +75,7 @@ public class HoaDonDAO {
                 HoaDon cthd = new HoaDon();
                 cthd.setMaDH(rs.getInt("MaDH"));
                 cthd.setMaKH(rs.getInt("MaKH"));               
-                cthd.setNgayDat(rs.getTimestamp("NgayDat"));
-                cthd.setPhuongthucthanhToan(rs.getString("PhuongThucThanhToan"));
+                cthd.setNgayDat(rs.getTimestamp("NgayDat"));              
                 cthd.setDiaChi(rs.getString("DiaChiGiaoHang"));
                 cthd.setTrangthaigiaoHang(rs.getString("TrangThai"));
                 cthd.setTongTien(rs.getInt("TongTien"));
@@ -102,8 +99,7 @@ public class HoaDonDAO {
                 cthd.setMaDH(rs.getInt("MaDH"));
                 cthd.setMaKH(rs.getInt("MaKH"));
                 
-                cthd.setNgayDat(rs.getTimestamp("NgayDat"));
-                cthd.setPhuongthucthanhToan(rs.getString("PhuongThucThanhToan"));
+                cthd.setNgayDat(rs.getTimestamp("NgayDat"));         
                 cthd.setDiaChi(rs.getString("DiaChiGiaoHang"));
                 cthd.setTrangthaigiaoHang(rs.getString("TrangThai"));
                 cthd.setTongTien(rs.getInt("TongTien"));

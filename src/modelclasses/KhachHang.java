@@ -19,12 +19,13 @@ public class KhachHang {
     public KhachHang() {
     }
 
-    public KhachHang(String tenKH, String matKhau, String diaChi, String email, String sdt) {
+    public KhachHang(String tenKH, String matKhau, String diaChi, String email, String sdt, String ngaySinh) {
         this.tenKH = tenKH;
         this.matKhau = matKhau;
         this.diaChi = diaChi;
         this.email = email;
         this.sdt = sdt;
+        this.ngaySinh = ngaySinh;
     }
 
     public KhachHang(int maKH, String tenKH, String matKhau, String diaChi, String email, String sdt) {

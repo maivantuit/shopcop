@@ -27,7 +27,7 @@ public class DanhMucDAO {
                 DanhMuc danhmuc = new DanhMuc();
                 danhmuc.setMaDMSP(rs.getString("MaDMSP"));
                 danhmuc.setTenDMSP(rs.getString("TenDMSP"));
-                danhmuc.setMaNSX(rs.getString("MaNSX"));
+                
                 list.add(danhmuc);
             }
         } catch (SQLException ex) {

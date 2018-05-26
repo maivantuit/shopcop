@@ -39,24 +39,38 @@ public class HoaDonDatHangServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		int checkKhachHang = Integer.parseInt(request
-				.getParameter("checkKhachHang"));
+		int checkKhachHang = Integer.parseInt(request.getParameter("checkKhachHang"));
 		HttpSession session = null;
+		GioHang giohang=null;
 		KhachHang khachhang = (KhachHang) session.getAttribute("user");
 		if (checkKhachHang == 0) {
 			String diachi = request.getParameter("diachi");
 			String hinhthucthanhtoan = request.getParameter("thanhtoan");
 			String sdt  = request.getParameter("sodienthoai");
 			session = request.getSession();
-			GioHang giohang = (GioHang) session.getAttribute("giohang");
+			 giohang = (GioHang) session.getAttribute("giohang");
 			HoaDon hoadon = new HoaDon();
 			hoadon.setMaKH(khachhang.getMaKH());
 			hoadon.setPhuongthucthanhToan(hinhthucthanhtoan);
 			hoadon.setDiaChi(diachi);
+			hoadon.setSoDienThoai(sdt);
 			hoadon.setTongTien(giohang.TinhTongTienTrongGioHang());
 			hoadondao.insertHoaDon(hoadon);
 		} else {
-			
+			String diachi = request.getParameter("diachiNguoiNhanKhac");
+			String hinhthucthanhtoan = request.getParameter("thanhtoan");
+			String sdt  = request.getParameter("sodienthoaiNguoiNhanKhac");
+			String tenNguoiNhan = request.getParameter("hoTenNguoiNhanKhac");
+			session = request.getSession();
+			 giohang = (GioHang) session.getAttribute("giohang");
+			HoaDon hoadon = new HoaDon();
+			hoadon.setMaKH(khachhang.getMaKH());
+			hoadon.setPhuongthucthanhToan(hinhthucthanhtoan);
+			hoadon.setDiaChi(diachi);
+			hoadon.setSoDienThoai(sdt);
+			hoadon.setNguoiNhan(tenNguoiNhan);
+			hoadon.setTongTien(giohang.TinhTongTienTrongGioHang());
+			hoadondao.insertHoaDon(hoadon);
 		}
 		try {
 

@@ -20,12 +20,11 @@ public class KhachHangDao {
 
 	// kiểm tra email tồn tại chưa:
 	public boolean checkEmail(String email) {
-
 		Connection connect = DBConnect.getConnection();
 		String sql = "select * from KhachHang where Email='" + email + "'"; // quan
 																			// trong
 																			// dau:
-																			// ''
+																			//''
 		try {
 			PreparedStatement ps = connect.prepareCall(sql);
 			ResultSet rs = ps.executeQuery();
@@ -43,7 +42,7 @@ public class KhachHangDao {
 	// phương thức thêm tài khoản
 	public boolean InsertKhachHang(KhachHang kh) {
 		Connection connect = DBConnect.getConnection();
-		String sql = "insert into KhachHang(TenKH,MatKhau,DiaChi,Email,SDT) values(?,?,?,?,?)";
+		String sql = "insert into KhachHang(TenKH,MatKhau,DiaChi,Email,SDT,NgaySinh) values(?,?,?,?,?,?)";
 		try {
 			PreparedStatement ps = connect.prepareCall(sql);
 			ps.setString(1, kh.getTenKH());
@@ -51,6 +50,7 @@ public class KhachHangDao {
 			ps.setString(3, kh.getDiaChi());
 			ps.setString(4, kh.getEmail());
 			ps.setString(5, kh.getSdt());
+			ps.setString(6, kh.getNgaySinh());
 			ps.executeUpdate();
 			return true;
 		} catch (SQLException ex) {
@@ -58,6 +58,7 @@ public class KhachHangDao {
 		}
 		return false;
 	}
+	// Lay danh sach email:
 
 	// kiểm tra đăng nhập:
 

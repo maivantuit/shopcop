@@ -19,7 +19,7 @@ public class HoaDon {
 
     private int maDH;
     private int maKH;
-    private int maND;
+    private int maNV;
     private String phuongthucthanhToan;
     private String trangthaigiaoHang;
     private String diaChi;
@@ -30,11 +30,26 @@ public class HoaDon {
 
     public HoaDon() {        
     }
+    
+    public HoaDon(int maDH, int maKH, int maNV, String phuongthucthanhToan,
+			String trangthaigiaoHang, String diaChi, String soDienThoai,
+			String nguoiNhan,  int tongTien) {
+		super();
+		this.maDH = maDH;
+		this.maKH = maKH;
+		this.maNV = maNV;
+		this.phuongthucthanhToan = phuongthucthanhToan;
+		this.trangthaigiaoHang = trangthaigiaoHang;
+		this.diaChi = diaChi;
+		this.soDienThoai = soDienThoai;
+		this.nguoiNhan = nguoiNhan;		
+		this.tongTien = tongTien;
+	}
 
-    public HoaDon(int maDH, int maKH, int maND, String phuongthucthanhToan, String trangthaigiaoHang, String diaChi, Timestamp ngayDat, int tongTien) {
+	public HoaDon(int maDH, int maKH, int maNV, String phuongthucthanhToan, String trangthaigiaoHang, String diaChi, Timestamp ngayDat, int tongTien) {
         this.maDH = maDH;
         this.maKH = maKH;
-        this.maND = maND;
+        this.maNV = maNV;
         this.phuongthucthanhToan = phuongthucthanhToan;
         this.trangthaigiaoHang = trangthaigiaoHang;
         this.diaChi = diaChi;
@@ -50,18 +65,18 @@ public class HoaDon {
         this.diaChi = diaChi;        
     }
     // contrutor not maDH, identity, not ngaydat
-    public HoaDon(int maKH, int maND, int tongTien, String phuongthucthanhToan, String diaChi) {
+    public HoaDon(int maKH, int maNV, int tongTien, String phuongthucthanhToan, String diaChi) {
         this.maKH = maKH;
-        this.maND = maND;
+        this.maNV = maNV;
         this.tongTien = tongTien;
         this.phuongthucthanhToan = phuongthucthanhToan;
         this.diaChi = diaChi;        
     }
 // contrutor have maDH, identity
-    public HoaDon(int maDH, int maKH, int maND, int tongTien, String phuongthucthanhToan, String diaChi, Timestamp ngayDat) {
+    public HoaDon(int maDH, int maKH, int maNV, int tongTien, String phuongthucthanhToan, String diaChi, Timestamp ngayDat) {
         this.maDH = maDH;
         this.maKH = maKH;
-        this.maND = maND;
+        this.maNV = maNV;
         this.tongTien = tongTien;
         this.phuongthucthanhToan = phuongthucthanhToan;
         this.diaChi = diaChi;
@@ -115,8 +130,8 @@ public class HoaDon {
         return maKH;
     }
 
-    public int getMaND() {
-        return maND;
+    public int getmaNV() {
+        return maNV;
     }
 
     public int getTongTien() {
@@ -143,8 +158,8 @@ public class HoaDon {
         this.maKH = maKH;
     }
 
-    public void setMaND(int maND) {
-        this.maND = maND;
+    public void setmaNV(int maNV) {
+        this.maNV = maNV;
     }
 
     public void setTongTien(int tongTien) {
