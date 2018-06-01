@@ -2141,12 +2141,12 @@ span.word {
 	outline: none;
 	border-radius: 5px;
 	font-weight: 600;
-	/* padding: 0.5em 1em; */
+	 padding: 0.5em 1em; 
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;
 	-o-transition: 0.5s all;
-	 margin: 0 0 0 10em; 
+	 /* margin: 0 0 0 10em; */ 
 }
 
 .account input[type="submit"]:hover {
@@ -2792,3 +2792,6 @@ ul.start li a i.next {
 	height: 70%;
 	width: 100%;
 }
+#checkDonHangDetailList table {width: 600px;boder:1px solid #ccc;margin:10px 5px}
+
+

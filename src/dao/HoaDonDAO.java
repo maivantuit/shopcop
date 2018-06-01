@@ -25,14 +25,13 @@ public class HoaDonDAO {
     public void insertHoaDon(HoaDon hoadon) {
         try {
             Connection connect = DBConnect.getConnection();
-            String sql = "insert into DonHang(MaKH,DiaChiGiaoHang,SoDienThoai,NguoiNhan,TongTien)\n"
-                    + "values(?,?,?,?,?,?)";
+            String sql = "insert into DonHang(MaKH,DiaChiGiaoHang,SoDienThoai,NguoiNhan,TongTien) values(?,?,?,?,?)";
             PreparedStatement ps = connect.prepareStatement(sql);
             ps.setInt(1, hoadon.getMaKH());           
             ps.setString(2, hoadon.getDiaChi());
-            ps.setString(3, hoadon.getSoDienThoai());
-            ps.setDouble(4, hoadon.getTongTien());
-            ps.setString(5, hoadon.getNguoiNhan());
+            ps.setString(3, hoadon.getSoDienThoai());            
+            ps.setString(4, hoadon.getNguoiNhan());
+            ps.setDouble(5, hoadon.getTongTien());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Error query sql: " + ex.getMessage());
@@ -46,7 +45,7 @@ public class HoaDonDAO {
         ArrayList<HoaDon> listhd = new ArrayList<HoaDon>();
         try {
             Connection connect = DBConnect.getConnection();
-            String sql = " select * from DonHang";
+            String sql = " select * from DonHang where NhanVienGiaoHang is null and NhanVienGiaoHang is null ";
             PreparedStatement ps = connect.prepareCall(sql);
             ResultSet rs = ps.executeQuery();            
             while (rs.next()) {
@@ -76,8 +75,7 @@ public class HoaDonDAO {
                 cthd.setMaDH(rs.getInt("MaDH"));
                 cthd.setMaKH(rs.getInt("MaKH"));               
                 cthd.setNgayDat(rs.getTimestamp("NgayDat"));              
-                cthd.setDiaChi(rs.getString("DiaChiGiaoHang"));
-                cthd.setTrangthaigiaoHang(rs.getString("TrangThai"));
+                cthd.setDiaChi(rs.getString("DiaChiGiaoHang"));                
                 cthd.setTongTien(rs.getInt("TongTien"));
                 list.add(cthd);
             }
@@ -101,7 +99,7 @@ public class HoaDonDAO {
                 
                 cthd.setNgayDat(rs.getTimestamp("NgayDat"));         
                 cthd.setDiaChi(rs.getString("DiaChiGiaoHang"));
-                cthd.setTrangthaigiaoHang(rs.getString("TrangThai"));
+               
                 cthd.setTongTien(rs.getInt("TongTien"));
                 list.add(cthd);
             }
@@ -127,6 +125,19 @@ public class HoaDonDAO {
         }
         return madh;
     }
+ // cập nhật dữ liệu khách hàng:
+  	public boolean duyetDonHang(String tinhTrangDonHang, String nhanVienGiaoHang, String maDH){
+  		Connection con = DBConnect.getConnection();
+  		String sql = String.format("update DonHang set TinhTrang=N'%s', NhanVienGiaoHang = '%s' where MaDH='%s'",tinhTrangDonHang,nhanVienGiaoHang,maDH);
+  		try {
+  			Statement stmt = con.createStatement();
+  			stmt.executeUpdate(sql);
+  			return true;
+  		} catch (Exception e) {
+  			e.printStackTrace();
+  		}
+  		return false;
+  	}
 
     public static void main(String[] args) throws SQLException {
         //(int maKH, int maND, double tongTien, String phuongthucthanhToan, String diaChi)

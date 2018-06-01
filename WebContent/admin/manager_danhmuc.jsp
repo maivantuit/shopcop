@@ -10,14 +10,12 @@
         <title>Quản lý danh mục</title>
 
         
-        <link href="../css/mos-style.css" rel='stylesheet' type='text/css' />
+        <link href="css/mos-style.css" rel='stylesheet' type='text/css' />
 
     </head>
     <body>
         <%
-            DanhMucDAO danhmucdao = new DanhMucDAO();
-            ArrayList<DanhMuc> listdanhmuc = danhmucdao.getListDanhMuc();
-
+        ArrayList<DanhMuc> listdanhmuc = (ArrayList<DanhMuc>)request.getAttribute("listdanhmuc");
         %>
         <jsp:include page="header.jsp"></jsp:include>
             <div id="wrapper">

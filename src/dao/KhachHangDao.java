@@ -6,9 +6,12 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import modelclasses.DanhMuc;
 import modelclasses.HoaDon;
 import modelclasses.KhachHang;
 
@@ -57,9 +60,23 @@ public class KhachHangDao {
 			System.out.println("Loi: " + ex.getMessage());
 		}
 		return false;
+	}	
+	// cập nhật dữ liệu khách hàng:
+	public boolean updateCustomer(String maKH, String tenKH, String diaChi,
+			String soDienThoai, String email,String ngaySinh){
+		Connection con = DBConnect.getConnection();
+		String sql = String.format("update KhachHang " +
+				"set TenKH = N'%s', DiaChi = N'%s', SDT = '%s', NgaySinh='%s',Email ='%s' " +
+				"where MaKH = '%s'",tenKH,diaChi,soDienThoai,ngaySinh,email,maKH);
+		try {
+			Statement stmt = con.createStatement();
+			stmt.executeUpdate(sql);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
-	// Lay danh sach email:
-
 	// kiểm tra đăng nhập:
 
 	public KhachHang login(String email, String password) {
@@ -159,12 +176,7 @@ public class KhachHangDao {
 		// khacHang.getMaKH();
 		// System.out.println(khacHang.getMaKH());
 		// System.out.println(khacHang.toString());
-		KhachHang kh=k.login("maivantuit@gmail.com", "123");
-		if(kh!=null){
-			System.out.println("oke");
-		}else{
-			System.out.println("not oke");
-		}
+		k.updateCustomer("1009", "A", "Test A", "0929291922", "maitu22312@gmail.com", "03/03/1992");
 
 	}
 }

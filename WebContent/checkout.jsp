@@ -3,7 +3,7 @@
     Created on : Nov 27, 2017, 10:18:08 AM
     Author     : CỌP
 --%>
-
+<%@page import="java.text.NumberFormat"%>
 <%@page import="java.util.Map"%>
 <%@page import="modelclasses.Item"%>
 <%@page import="modelclasses.GioHang"%>
@@ -32,9 +32,8 @@
               Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
-	
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 
 </script>
 <!--fonts-->
@@ -88,15 +87,17 @@
 </head>
 <body>
 	<%
-		request.setCharacterEncoding("utf-8");
+				String soLuongTang = (String)request.getAttribute("soLuongTang");
+	String soLuongGiam = (String)request.getAttribute("soLuongGiam");
+						request.setCharacterEncoding("utf-8");
 			            response.setCharacterEncoding("utf-8");
 			            KhachHang khachhang = (KhachHang) session.getAttribute("user");
 			            if (khachhang == null) { // chưa login, thì chuyển đến trang login mới đặt hàng được
 			                response.sendRedirect("/doancntt/login.jsp");
-			            }
+			            }			            
 	%>
 	<%
-		ChiTietHoaDonDAO chitiethoadondao = new ChiTietHoaDonDAO();
+						ChiTietHoaDonDAO chitiethoadondao = new ChiTietHoaDonDAO();
 			            String madonhang = "";
 			            if (request.getParameter("madh") != null) { // từ link url
 			                madonhang = request.getParameter("madh");
@@ -126,9 +127,9 @@
 						<th class="data" width="90px">Chức năng</th>
 					</tr>
 					<%
-						int dem = 0;
-											                            for (Map.Entry<Long, Item> list : giohang.getGiohangItems().entrySet()) {
-											                                dem++;
+						int dem = 0;				                           
+									for (Map.Entry<Long, Item> list : giohang.getGiohangItems().entrySet()) {
+										dem++;
 					%>
 					<tr class="data">
 						<td class="data" width="30px"><%=dem%></td>
@@ -155,68 +156,82 @@
 			</div>
 			<div class="total">
 				<div class="total_left" style="color: black">TỔNG TIỀN :</div>
-				<div class="" style="color: black"><%=giohang.TinhTongTienTrongGioHang()%>
+				<div class="" style="color: black"><%=NumberFormat.getInstance().format(giohang.TinhTongTienTrongGioHang())%>
 					VNĐ
 				</div>
 				<div class="clearfix"></div>
 			</div>
-			<div id="thongtinkhachhangkhidathang">				
+			<div id="thongtinkhachhangkhidathang">
 				<div id="thongTinGiaoHangKhachHang">
-				<legend>Thông tin khách hàng</legend>
-				Gửi cho chính mình:<input type="radio" checked="checked" value="0" name="checkKhachHang">
+					<legend>Thông tin khách hàng</legend>
+					Gửi cho chính mình:<input type="radio" checked="checked" value="0"
+						name="checkKhachHang">
 					<table>
 						<tr>
 							<td><span>Họ và tên:</span></td>
-							<td><input size="80" type="text" name="hoten"
+							<td><input style="background: #333; color: white"
+								readonly="readonly" size="80" type="text" name="hoten"
 								value="<%if (session.getAttribute("user") != null) {%><%=khachhang.getTenKH()%><%}%>"></td>
 						</tr>
 						<tr>
 							<td><span>Điện thoại di động:</span></td>
-							<td><input size="80" type="text" name="sodienthoai"
+							<td><input style="background: #333; color: white"
+								readonly="readonly" size="80" type="text" name="sodienthoai"
 								value="<%if (session.getAttribute("user") != null) {%><%=khachhang.getSdt()%><%}%>"></td>
 						</tr>
 						<tr>
 							<td><span>Địa chỉ</span></td>
-							<td><input size="80" type="text" name="diachi"
+							<td><input style="background: #333; color: white"
+								readonly="readonly" size="80" type="text" name="diachi"
 								value="<%if (session.getAttribute("user") != null) {%><%=khachhang.getDiaChi()%><%}%>"></td>
 						</tr>
 					</table>
 				</div>
 				<div id="thongTinGiaoHangNguoiNhanKhac">
-				<legend>Thông tin người nhận khác</legend>
-				Gửi cho người khác:<input size="10"  type="radio" value="1" name="checkKhachHang">
+					<legend>Thông tin người nhận khác</legend>
+					Gửi cho người khác:<input size="10" type="radio" value="1"
+						name="checkKhachHang">
 					<table>
 						<tr>
 							<td><span>Họ và tên:</span></td>
-							<td><input size="80" type="text" name="hoTenNguoiNhanKhac"
-								></td>
+							<td><input size="80" type="text" name="hoTenNguoiNhanKhac"></td>
 						</tr>
 						<tr>
 							<td><span>Điện thoại di động:</span></td>
-							<td><input size="80" type="text" name="sodienthoaiNguoiNhanKhac"
-								></td>
+							<td><input size="80" type="text"
+								name="sodienthoaiNguoiNhanKhac"></td>
 						</tr>
 						<tr>
 							<td><span>Địa chỉ</span></td>
-							<td><input size="80" type="text" name="diachiNguoiNhanKhac"
-								></td>
+							<td><input size="80" type="text" name="diachiNguoiNhanKhac"></td>
 						</tr>
 					</table>
 				</div>
 
 			</div>
-			<div id="hinhThucThanhToan">
-				<span>Hình thức thanh toán</span> <select name="thanhtoan">
-					<option value="Thanh toán khi nhận hàng">Thanh toán khi
-						nhận hàng</option>
-					<option value="Khác">Chuyển khoản ngân
-						hàng</option>
-				</select>
+			<div id="thongtinkhachhangkhidathang">
+				<input type="submit" value="Đặt hàng">
 			</div>
 
-			<input type="submit" value="Đặt hàng">
 		</form>
 	</div>
+	<%
+		if(soLuongGiam!=null){
+		%>
+		<script type="text/javascript">
+			alert('Vui lòng chọn nhiều hơn 1 sản phẩm!');
+		</script>
+			
+		<%} %>
+		<%
+		if(soLuongTang!=null){
+		%>
+		<script type="text/javascript">
+			alert('Vượt qua số sản phẩm hiện tại!');
+		</script>
+			
+		<%} %>
+
 
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>

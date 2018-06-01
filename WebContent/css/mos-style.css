@@ -224,7 +224,7 @@ tr.data:hover small {color: #5b5b5b;}
     width: 100%;
     color: #fcfcfc;
     cursor: pointer;
-    padding: 10px 65px 10px 20px;
+    padding: 0px 0px 10px 20px;
     -webkit-transition: padding-left 250ms ease-out;
     -moz-transition: padding-left 250ms ease-out;
     -o-transition: padding-left 250ms ease-out;
@@ -290,4 +290,36 @@ tr.data:hover small {color: #5b5b5b;}
     font-size: 11px;
     border-top: 1px solid #dcdcdc;
     background: #fff;
+}
+#phieuNhapTong {
+    width:100%;
+    height:350px;
+}
+
+#thongTinPhieuNhap {
+    width:50%;
+    background:#ff00d4;
+    height:100%;
+    float:left;
+}
+
+#thongTinChiTietPhieuNhap {
+    width:50%;
+    background:#00ff36;
+    height:100%;
+    float:right;
+}
+#phieuNhapDaTao {
+    clear:both;
+    width:100%;
+    background:#dabcbc;
+    height:100px;
+    float:left;
+}
+#chiTietPphieuNhapDaTao{
+	 clear:both;
+    width:100%;
+    background:#e8d6da;
+    height:200px;
+    float:left;
 }

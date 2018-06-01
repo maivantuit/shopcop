@@ -11,6 +11,7 @@ public class SanPham {
     private String thuongHieu;
     private String hinhAnh;
     private int gia;    
+    private String soLuong;
 
     public SanPham() {
     }
@@ -48,8 +49,16 @@ public class SanPham {
         return gia;
     }
 
+    
+    public String getSoLuong() {
+		return soLuong;
+	}
 
-    public void setMaSP(int maSP) {
+	public void setSoLuong(String soLuong) {
+		this.soLuong = soLuong;
+	}
+
+	public void setMaSP(int maSP) {
         this.maSP = maSP;
     }
 

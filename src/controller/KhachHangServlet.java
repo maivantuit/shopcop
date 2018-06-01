@@ -39,46 +39,56 @@ public class KhachHangServlet extends HttpServlet {
 							// email, String sdt
 		case "insert":// (TenKH,MatKhau,NgaySinh,DiaChi,Email,SDT)
 			String emailCheck = request.getParameter("email");
-			boolean checkEmailTonTai = khachhangdao.checkEmail(emailCheck);
-			
+			boolean checkEmailTonTai = khachhangdao.checkEmail(emailCheck
+					.trim());
+
 			String sdt = request.getParameter("sodienthoai");
-			kh.setSdt(sdt);				
+			kh.setSdt(sdt);
 			request.setAttribute("sdt", sdt);
-			
-			String ngaysinh = request.getParameter("ngaysinh");			
+
+			String ngaysinh = request.getParameter("ngaysinh").trim();
 			kh.setNgaySinh(ngaysinh);
 			request.setAttribute("ngaysinh", ngaysinh);
-			
+
 			String hovaten = request.getParameter("hovaten");
 			kh.setTenKH(hovaten);
 			request.setAttribute("hovaten", hovaten);
-			
-			String nhaplaimatkhau=request.getParameter("nhaplaimatkhau");
+
+			String nhaplaimatkhau = request.getParameter("nhaplaimatkhau");
 			kh.setMatKhau(nhaplaimatkhau);
 			request.setAttribute("nhaplaimatkhau", nhaplaimatkhau);
-			
-			String matkhau=request.getParameter("matkhau");
+
+			String matkhau = request.getParameter("matkhau");
 			kh.setMatKhau(matkhau);
 			request.setAttribute("matkhau", matkhau);
-			
-			String diachi= request.getParameter("diachi");
+
+			String diachi = request.getParameter("diachi");
 			kh.setDiaChi(diachi);
 			request.setAttribute("diachi", diachi);
-			if (checkEmailTonTai) {
-				request.setAttribute("emailCheck", emailCheck);
+			if (emailCheck.equals("") || diachi.equals("")
+					|| matkhau.equals("") || nhaplaimatkhau.equals("")
+					|| hovaten.equals("") || sdt.equals("")
+					|| ngaysinh.equals("")) {
 				url = "/register.jsp";
-			} if(!matkhau.equals(nhaplaimatkhau)){
-				request.setAttribute("nhapLaiMatKhau", nhaplaimatkhau);
-				url = "/register.jsp";
-			}else {								
-			
-				kh.setEmail(emailCheck);
-				khachhangdao.InsertKhachHang(kh);
-				session.setAttribute("user", kh);// user tự đặt tại đây, tiếp
-													// tục tại header
-				url = "/TrangChuKhachHangServlet";
-			}
+			} else {
+				if (checkEmailTonTai) {
+					request.setAttribute("emailCheck", emailCheck);
+					url = "/register.jsp";
+				} else {
+					if (!matkhau.equals(nhaplaimatkhau)) {
+						request.setAttribute("nhapLaiMatKhau", nhaplaimatkhau);
+						url = "/register.jsp";
+					} else {
+						kh.setEmail(emailCheck);
+						khachhangdao.InsertKhachHang(kh);
+						session.setAttribute("user", kh);// user tự đặt tại đây,
+															// tiếp // tục tại
+															// header
+						url = "/TrangChuKhachHangServlet";
+					}
+				}
 
+			}
 			break;
 		case "login":
 			kh = khachhangdao.login(request.getParameter("email"),

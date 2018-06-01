@@ -4,7 +4,7 @@
     Author     : CỌP
 --%>
 
-<%@page import="modelclasses.KhachHang"%>
+<%@page import="modelclasses.*"%>
 <%@page import="dao.KhachHangDao"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelclasses.SanPham"%>
@@ -23,6 +23,7 @@
         <%
             KhachHangDao khachhangdao = new KhachHangDao();
             ArrayList<KhachHang> listkhachhang = khachhangdao.getListKhachHang();
+            ArrayList<NguoiGiaoHang> listNguoiGiaoHang= (ArrayList<NguoiGiaoHang>)request.getAttribute("listNguoiGiaoHang");
             
         %>
         

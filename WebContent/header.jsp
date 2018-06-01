@@ -23,15 +23,15 @@
 	<!--jsp danh mục sản phẩm-->
 	<%
 		KhachHang kh = null;
-	            if (session.getAttribute("user") != null) {
-	                kh = (KhachHang) session.getAttribute("user");
-	            }
-	            GioHang giohang = (GioHang) session.getAttribute("giohang"); // get tu cho no set
-	            if (giohang == null) {
-	                giohang = new GioHang();
-	                session.setAttribute("giohang", giohang);
-	            }
-	            String tenSP = (String)request.getAttribute("tenSP");
+		            if (session.getAttribute("user") != null) {
+		                kh = (KhachHang) session.getAttribute("user");
+		            }
+		            GioHang giohang = (GioHang) session.getAttribute("giohang"); // get tu cho no set
+		            if (giohang == null) {
+		                giohang = new GioHang();
+		                session.setAttribute("giohang", giohang);
+		            }
+		            String tenSP = (String)request.getAttribute("tenSP");
 	%>
 	<!--end jsp danh mục sản phẩm-->
 	<!--header-->
@@ -50,14 +50,24 @@
 							%>
 							<li><a href="#"> <%="Chào bạn: " + kh.getTenKH()%></a></li>
 							<li><a href="logout.jsp"> Đăng xuất</a></li>
-							<li><a
+							<li>
+								<a
 								href="/doancntt/checkdonhang.jsp?makh2=<%=kh.getMaKH()%>">Kiểm
-									tra đơn hàng</a>&nbsp; | &nbsp;</li>
+									tra đơn hàng
+								</a>&nbsp; | &nbsp;
+							</li>
+							<li>
+								<a
+								href="ChinhSuaThongTinKhachHangServlet?makh2=<%=kh.getMaKH()%>">Cập nhật thông tin
+								</a>&nbsp; | &nbsp;
+							</li>
 							<%
-								}
+								}else{
 							%>
 							<li><a href="login.jsp"> Đăng nhập</a></li>
 							<li><a href="register.jsp"> Đăng ký</a></li>
+							<% }%>
+							
 
 
 
@@ -174,11 +184,9 @@
 	                                            }">
 										<%
 											if(tenSP!=null){
-										%> 
-										<a style="color:blue"><%=tenSP%></a> 
-										<%
-											}
-										%>
+										%> <a style="color: blue"><%=tenSP%></a> <%
+ 	}
+ %>
 									</span> <span>
 										<button class="btn-u pull-left" type="submit" name="submit"
 											value="submit">Tìm kiếm</button>

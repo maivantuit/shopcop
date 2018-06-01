@@ -7,6 +7,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelclasses.SanPham"%>
 <%@page import="dao.SanPhamDAO"%>
+<%@page import="java.text.NumberFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -15,13 +16,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Manager-sanpham</title>
         
-        <link href="../css/mos-style.css" rel='stylesheet' type='text/css' />
+        <link href="css/mos-style.css" rel='stylesheet' type='text/css' />
     </head>
     <body>
         <%
-            SanPhamDAO sanphamdao = new SanPhamDAO();
-            ArrayList<SanPham> listsanpham = sanphamdao.getListSanPhamALL();
-            
+        ArrayList<SanPham> listsanpham = (ArrayList<SanPham>)request.getAttribute("listsanpham");
         %>
         
         
@@ -40,6 +39,7 @@
                             <th class="data" >Mã sản phẩm</th>
                             <th class="data">Tên sản phẩm</th>                            
                             <th class="data">Thương hiệu</th> 
+                             <th class="data">Số lượng</th> 
                             <th class="data">Giá(VNĐ)</th>     
                             <th class="data" width="90px">Chức năng</th>
                         </tr>
@@ -54,7 +54,8 @@
                             <td class="data"><%= elementssanpham.getMaSP()%></td>   
                             <td class="data"><%= elementssanpham.getTenSP()%></td> 
                             <td class="data"><%= elementssanpham.getThuongHieu()%></td> 
-                            <td class="data"><%= elementssanpham.getGia()%></td> 
+                             <td class="data" style="background: #e4caca;text-align: center"><%= elementssanpham.getSoLuong()%></td> 
+                            <td class="data"><%= NumberFormat.getInstance().format(elementssanpham.getGia())%></td> 
                             <td class="data" width="90px">
                                 <center>
                                     <a href="/doancntt/admin/update_danhmuc.jsp?command=updateurl&MaDMSPurl=<%= elementssanpham.getMaDMSP()%>">Sửa</a>&nbsp;&nbsp; | &nbsp;&nbsp;

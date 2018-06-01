@@ -3,7 +3,7 @@
     Created on : Oct 26, 2017, 9:35:18 AM
     Author     : CỌP
 --%>
-
+<%@page import="java.text.NumberFormat"%>
 <%@page import="modelclasses.GioHang"%>
 <%@page import="modelclasses.SanPham"%>
 <%@page import="dao.SanPhamDAO"%>
@@ -103,7 +103,7 @@
                                         <h3></h3>
                                         <h4 href="single.jsp?maSP=<%= p.getMaSP()%>">                                             
                                             <%= p.getTenSP()%>
-                                            Giá:<%= p.getGia()%>                                           
+                                            Giá:<%= NumberFormat.getInstance().format(p.getGia())%>                                           
                                         </h4> 
                                         <span class="textkm">
                                             Khuyến mãi trị giá đến 

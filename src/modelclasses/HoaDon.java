@@ -98,7 +98,15 @@ public class HoaDon {
         return maDH;
     }
     
-    public String getNguoiNhan() {
+    public int getMaNV() {
+		return maNV;
+	}
+
+	public void setMaNV(int maNV) {
+		this.maNV = maNV;
+	}
+
+	public String getNguoiNhan() {
 		return nguoiNhan;
 	}
 

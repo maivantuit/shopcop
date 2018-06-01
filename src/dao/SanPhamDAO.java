@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +31,7 @@ public class SanPhamDAO {
                 sanpham.setTenSP(rs.getString("TenSP"));
                 sanpham.setMaDMSP(rs.getString("MaDMSP"));
                 sanpham.setThuongHieu(rs.getString("ThuongHieu"));
+                sanpham.setSoLuong(rs.getString("SoLuong"));
                 sanpham.setHinhAnh(rs.getString("HinhAnh"));
                 sanpham.setGia(rs.getInt("Gia"));                
                 list.add(sanpham);
@@ -138,6 +140,40 @@ public class SanPhamDAO {
         }
         return null;
     }
+ // cập nhật dữ liệu khách hàng:
+ 	public static boolean updateSoLuongSanPham(String maSP, String soLuong){
+ 		Connection con = DBConnect.getConnection();
+ 		String sql = String.format("update SanPham " +
+ 				"set SoLuong = '%s'" +
+ 				"where MaSP = '%s'",soLuong,maSP);
+ 		try {
+ 			Statement stmt = con.createStatement();
+ 			stmt.executeUpdate(sql);
+ 			return true;
+ 		} catch (Exception e) {
+ 			e.printStackTrace();
+ 		}
+ 		return false;
+ 	}
+ // lấy số lượng hiện tại:
+ 	public static String getSoLuongHienTai(String maSanPham) {
+ 		try {
+ 			Connection connect = DBConnect.getConnection();
+ 			String sql = " select SoLuong from SanPham where MaSP=?";
+ 			PreparedStatement ps = connect.prepareCall(sql);
+ 			ps.setString(1, maSanPham);
+ 			ResultSet rs = ps.executeQuery();
+ 			SanPham kh = new SanPham();
+ 			if (rs.next()) {
+ 				kh.setSoLuong(rs.getString("SoLuong")); 				
+ 			}
+ 			return kh.getSoLuong();
+ 		} catch (SQLException ex) {
+ 			Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null,
+ 					ex);
+ 		}
+ 		return null;
+ 	}
 
     public static void main(String[] args) throws SQLException {
         SanPhamDAO sanphamdao = new SanPhamDAO();

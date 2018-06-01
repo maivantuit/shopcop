@@ -2,6 +2,8 @@ package controller;
 
 import dao.SanPhamDAO;
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,20 +39,48 @@ public class GioHangServlet extends HttpServlet {
             SanPham sanpham = sanphamdao.getSanPham(spma); // ep kieu cho de nhin
             switch (command) {
                 case "plus": // them san pham vao gio hang
-                    if (giohang.getGiohangItems().containsKey(spma)){  // xem ham tra ve la . cuoi                        
-                        giohang.ThemSanPham(spma, new Item(sanpham,giohang.getGiohangItems().get(spma).getSoLuong())); // contructor                        
+                    if (giohang.getGiohangItems().containsKey(spma)){  // xem ham tra ve la . cuoi
+                    	int checkSoLuong =giohang.getGiohangItems().get(spma).getSoLuong();
+                    	SanPhamDAO sanPham = new SanPhamDAO();
+                    	int soLuongHienTai=Integer.parseInt(sanPham.getSoLuongHienTai(String.valueOf(spma)));
+                    	if(checkSoLuong>=soLuongHienTai){
+                    		String soLuongTang = "Sản phẩm hiện tại không đủ";
+                    		request.setAttribute("soLuongTang", soLuongTang);
+                    	}else{
+                    		if(checkSoLuong>=soLuongHienTai){
+                    			giohang.ThemSanPham(spma, new Item(sanpham,giohang.getGiohangItems().get(spma).getSoLuong()-1)); // contructor
+                    		}else{
+                    			giohang.ThemSanPham(spma, new Item(sanpham,giohang.getGiohangItems().get(spma).getSoLuong())); // contructor
+                    		}
+                    	}
                     }else{
                         giohang.ThemSanPham(spma, new Item(sanpham,1));
                     }    
-                    response.sendRedirect("/doancntt/checkout.jsp");
+                    RequestDispatcher rd = request
+            				.getRequestDispatcher("checkout.jsp");
+            		rd.forward(request, response);
                     break;
                 case "bot": // bớt san pham vao gio hang
-                    if (giohang.getGiohangItems().containsKey(spma)){  // xem ham tra ve la . cuoi                        
-                        giohang.BotSanPham(spma, new Item(sanpham,giohang.getGiohangItems().get(spma).getSoLuong())); // contructor                        
+                    if (giohang.getGiohangItems().containsKey(spma)){  // xem ham tra ve la . cuoi  
+                    	int checkSoLuong =giohang.getGiohangItems().get(spma).getSoLuong();
+                    	if(checkSoLuong<=1){
+                    		String soLuongGiam = "Số lượng sản phẩm không được < 1.";
+                    		request.setAttribute("soLuongGiam", soLuongGiam);
+                    	}
+                    	else{
+                    		if(checkSoLuong==1){
+                    			giohang.BotSanPham(spma, new Item(sanpham,giohang.getGiohangItems().get(spma).getSoLuong()+1)); // contructor
+                    		}else{
+                    			giohang.BotSanPham(spma, new Item(sanpham,giohang.getGiohangItems().get(spma).getSoLuong())); // contructor
+                    		}
+                    	}
                     }else{
                         giohang.ThemSanPham(spma, new Item(sanpham,1));
                     }                    
-                    response.sendRedirect("/doancntt/checkout.jsp");
+                    /*response.sendRedirect("/doancntt/checkout.jsp");*/
+                    RequestDispatcher rd2 = request
+            				.getRequestDispatcher("checkout.jsp");
+            		rd2.forward(request, response);
                     break;
                 case "remove": // xoa san pham in gio hang
                     giohang.XoaSanPhamTrongGioHang(spma);

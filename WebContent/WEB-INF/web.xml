@@ -23,12 +23,50 @@
     <servlet-name>QuanLyDanhMucServlet</servlet-name>
     <servlet-class>controller.QuanLyDanhMucServlet</servlet-class>
   </servlet>
-   <!-- TuMV Start 10-05-2018 -->
   <servlet>
     <servlet-name>TrangChuKhachHangServlet</servlet-name>
     <servlet-class>controller.TrangChuKhachHangServlet</servlet-class>
   </servlet>
-  <!-- TuMV End 10-05-2018 -->
+  <servlet>
+    <servlet-name>ChinhSuaThongTinKhachHangServlet</servlet-name>
+    <servlet-class>controller.ChinhSuaThongTinKhachHangServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>NhapHangServlet</servlet-name>
+    <servlet-class>controller.NhapHangServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TaoPhieuNhapServlet</servlet-name>
+    <servlet-class>controller.TaoPhieuNhapServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TaoChiTietPhieuNhapSevlet</servlet-name>
+    <servlet-class>controller.TaoChiTietPhieuNhapSevlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DuyetDonHangServlet</servlet-name>
+    <servlet-class>controller.DuyetDonHangServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SanPhamServlet</servlet-name>
+    <servlet-class>controller.SanPhamServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DanhMucSanPhamServlet</servlet-name>
+    <servlet-class>controller.DanhMucSanPhamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DanhMucSanPhamServlet</servlet-name>
+    <url-pattern>/DanhMucSanPhamServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SanPhamServlet</servlet-name>
+    <url-pattern>/SanPhamServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DuyetDonHangServlet</servlet-name>
+    <url-pattern>/DuyetDonHangServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>CheckEmailServlet</servlet-name>
     <url-pattern>/CheckEmailServlet</url-pattern>
@@ -49,12 +87,26 @@
     <servlet-name>QuanLyDanhMucServlet</servlet-name>
     <url-pattern>/QuanLyDanhMucServlet</url-pattern>
   </servlet-mapping>
-  <!-- TuMV Start 10-05-2018 -->
   <servlet-mapping>
     <servlet-name>TrangChuKhachHangServlet</servlet-name>
     <url-pattern>/TrangChuKhachHangServlet</url-pattern>
   </servlet-mapping>
-  <!-- TuMV End 10-05-2018 -->
+  <servlet-mapping>
+    <servlet-name>ChinhSuaThongTinKhachHangServlet</servlet-name>
+    <url-pattern>/ChinhSuaThongTinKhachHangServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NhapHangServlet</servlet-name>
+    <url-pattern>/NhapHangServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TaoPhieuNhapServlet</servlet-name>
+    <url-pattern>/TaoPhieuNhapServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TaoChiTietPhieuNhapSevlet</servlet-name>
+    <url-pattern>/TaoChiTietPhieuNhapSevlet</url-pattern>
+  </servlet-mapping>
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>

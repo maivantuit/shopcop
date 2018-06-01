@@ -24,12 +24,11 @@ public class ChiTietHoaDonDAO {
     public void InsertChiTietHoaDon(ChiTietHoaDon chitiethoadon) {
         try {
             Connection connect = DBConnect.getConnection();
-            String sql = "insert into ChiTietDonHang(MaDH,MaSP,DonGia,SoLuong) values (?,?,?,?)";
+            String sql = "insert into ChiTietDonHang(MaDH,MaSP,SoLuong) values (?,?,?)";
             PreparedStatement ps = connect.prepareStatement(sql);
             ps.setInt(1, chitiethoadon.getMaDH());
-            ps.setInt(2, chitiethoadon.getMaSP());
-            ps.setInt(3, chitiethoadon.getGia());
-            ps.setInt(4, chitiethoadon.getSoLuong());
+            ps.setInt(2, chitiethoadon.getMaSP());           
+            ps.setInt(3, chitiethoadon.getSoLuong());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Error query sql: " + ex.getMessage());
@@ -66,8 +65,7 @@ public class ChiTietHoaDonDAO {
             while (rs.next()) {
                 ChiTietHoaDon cthd = new ChiTietHoaDon();
                 cthd.setMaDH(rs.getInt("MaDH"));                
-                cthd.setMaSP(rs.getInt("MaSP"));
-                cthd.setGia(rs.getInt("DonGia"));
+                cthd.setMaSP(rs.getInt("MaSP"));            
                 cthd.setSoLuong(rs.getInt("SoLuong"));
                 list.add(cthd);
             }
@@ -87,8 +85,7 @@ public class ChiTietHoaDonDAO {
             while (rs.next()) {
                 ChiTietHoaDon chitiethoadon = new ChiTietHoaDon();
                 chitiethoadon.setMaDH(rs.getInt("MaDH"));
-                chitiethoadon.setMaSP(rs.getInt("MaSP"));
-                chitiethoadon.setGia(rs.getInt("DonGia"));
+                chitiethoadon.setMaSP(rs.getInt("MaSP"));              
                 chitiethoadon.setSoLuong(rs.getInt("SoLuong"));
                 list.add(chitiethoadon);
             }

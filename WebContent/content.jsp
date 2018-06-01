@@ -1,3 +1,4 @@
+<%@page import="java.text.NumberFormat"%>
 <%@page import="modelclasses.HoaDon"%>
 <%@page import="dao.KhachHangDao"%>
 <%@page import="java.util.ArrayList"%>
@@ -50,7 +51,7 @@
 									<h3></h3>
 									<h4 href="single.jsp?maSP=<%= item.getMaSP()%>">                                             
                                             <%= item.getTenSP()%>
-                                            Giá:<%= item.getGia()%>                                           
+                                            Giá:<%= NumberFormat.getInstance().format(item.getGia())%>                                           
                                     </h4> 
 									<span class="textkm">Khuyến mãi trị giá đến <strong>500.000₫</strong>
 									</span>
