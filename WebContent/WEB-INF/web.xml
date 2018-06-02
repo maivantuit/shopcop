@@ -87,7 +87,7 @@
     <servlet-name>DangXuatNhanVienKhoServlet</servlet-name>
     <servlet-class>controller.DangXuatNhanVienKhoServlet</servlet-class>
   </servlet>
-   <servlet>
+  <servlet>
     <servlet-name>XoaSanPhamServlet</servlet-name>
     <servlet-class>controller.XoaSanPhamServlet</servlet-class>
   </servlet>
@@ -95,15 +95,47 @@
     <servlet-name>ThemSanPhamServlet</servlet-name>
     <servlet-class>controller.ThemSanPhamServlet</servlet-class>
   </servlet>
-   <servlet>
+  <servlet>
     <servlet-name>SuaSanPhamServlet</servlet-name>
     <servlet-class>controller.SuaSanPhamServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DangNhapNhanVienGiaoHangServlet</servlet-name>
+    <servlet-class>controller.DangNhapNhanVienGiaoHangServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TrangChuNhanVienGiaoHangServlet</servlet-name>
+    <servlet-class>controller.TrangChuNhanVienGiaoHangServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>NhanVienGiaoHangXemHoaDonServlet</servlet-name>
+    <servlet-class>controller.NhanVienGiaoHangXemHoaDonServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DangXuatNhanVienGiaoHangServlet</servlet-name>
+    <servlet-class>controller.DangXuatNhanVienGiaoHangServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DangXuatNhanVienGiaoHangServlet</servlet-name>
+    <url-pattern>/DangXuatNhanVienGiaoHangServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NhanVienGiaoHangXemHoaDonServlet</servlet-name>
+    <url-pattern>/NhanVienGiaoHangXemHoaDonServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TrangChuNhanVienGiaoHangServlet</servlet-name>
+    <url-pattern>/TrangChuNhanVienGiaoHangServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DangNhapNhanVienGiaoHangServlet</servlet-name>
+    <url-pattern>/DangNhapNhanVienGiaoHangServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>SuaSanPhamServlet</servlet-name>
     <url-pattern>/SuaSanPhamServlet</url-pattern>
   </servlet-mapping>
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>ThemSanPhamServlet</servlet-name>
     <url-pattern>/ThemSanPhamServlet</url-pattern>
   </servlet-mapping>

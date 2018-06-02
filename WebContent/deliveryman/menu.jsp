@@ -14,8 +14,8 @@
     <body>
         <div id="leftBar">
             <ul>
-                <li><a href="/doancntt/admin/index.jsp">Trang chủ</a></li>
-                <li><a href="manager_danhmuc.jsp">Xem đơn hàng</a></li>                
+                <li><a href="/doancntt/TrangChuNhanVienGiaoHangServlet">Trang chủ</a></li>
+                <li><a href="/doancntt/NhanVienGiaoHangXemHoaDonServlet">Xem đơn hàng</a></li>                
             </ul>
         </div>
     </body>

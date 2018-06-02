@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import modelclasses.ChiTietHoaDon;
 import modelclasses.HoaDon;
 import modelclasses.KhachHang;
+import modelclasses.SanPham;
 
 /**
  *
@@ -109,6 +110,30 @@ public class HoaDonDAO {
         }
         return listhd;
     }
+ // get table HoaDonDatHang:(DonHang)
+    public ArrayList<HoaDon> getListHoaDonNhanVienGiaoHang(String maNV) {
+        ArrayList<HoaDon> listhd = new ArrayList<HoaDon>();
+        try {
+            Connection connect = DBConnect.getConnection();
+            String sql = " select * from DonHang where TinhTrang=N'Đang đóng gói và gửi đi' " +
+            		"and NgayGiao is null and NhanVienGiaoHang is not null and NhanVienGiaoHang='"+maNV+ "'";
+            PreparedStatement ps = connect.prepareCall(sql);
+            ResultSet rs = ps.executeQuery();            
+            while (rs.next()) {
+                HoaDon hoadon = new HoaDon();
+                hoadon.setMaDH(rs.getInt("MaDH"));
+                hoadon.setMaKH(rs.getInt("MaKH"));
+                hoadon.setNgayDat(rs.getTimestamp("NgayDat"));               
+                hoadon.setDiaChi(rs.getString("DiaChiGiaoHang"));
+                hoadon.setNguoiGiao(rs.getString("NhanVienGiaoHang"));
+                hoadon.setTongTien(rs.getInt("TongTien"));
+                listhd.add(hoadon);                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listhd;
+    }   
        // xem table Hóa đơn theo 1 mã khách hàng:
     public static ArrayList<HoaDon> getListHoaDonHaveCode(String makh) {
         ArrayList<HoaDon> list = new ArrayList<HoaDon>();
@@ -206,9 +231,9 @@ public class HoaDonDAO {
 //        int a=h.getMaDHShow(1000);
 //        System.out.println(a);
         HoaDonDAO h = new HoaDonDAO();
-        ArrayList<HoaDon> list = h.getListHoaDon();
+        ArrayList<HoaDon> list = h.getListHoaDonNhanVienGiaoHang("NVGH01");
         for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).getTongTien());
+            System.out.println(list.get(i).getMaDH());
         }
 
     }

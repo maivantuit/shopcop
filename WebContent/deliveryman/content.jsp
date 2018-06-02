@@ -19,22 +19,22 @@
                 <i style="color: #5b5b5b;">"Nếu bạn nghĩ rằng bạn có thể, bạn thực sự có thể"</i>
             </div>
             <div class="shortcutHome">
-                <a href=""><img src="../img/posting.png"><br>Thêm bài đăng</a>
+                <a href=""><img src="img/posting.png"><br>Thêm bài đăng</a>
             </div>
             <div class="shortcutHome">
-                <a href=""><img src="../img/photo.png"><br>Tải ảnh lên</a>
+                <a href=""><img src="img/photo.png"><br>Tải ảnh lên</a>
             </div>
             <div class="shortcutHome">
-                <a href=""><img src="../img/halaman.png"><br>Thêm trang</a>
+                <a href=""><img src="img/halaman.png"><br>Thêm trang</a>
             </div>
             <div class="shortcutHome">
-                    <a href=""><img src="../img/template.png"><br>Cài đặt mẫu</a>
+                    <a href=""><img src="img/template.png"><br>Cài đặt mẫu</a>
             </div>
             <div class="shortcutHome">
-                <a href=""><img src="../img/quote.png"><br>Sáng tạo</a>
+                <a href=""><img src="img/quote.png"><br>Sáng tạo</a>
             </div>
             <div class="shortcutHome">
-                <a href=""><img src="../img/bukutamu.png"><br>Dữ liệu khách hàng</a>
+                <a href=""><img src="img/bukutamu.png"><br>Dữ liệu khách hàng</a>
             </div>
 
             <div class="clear"></div>

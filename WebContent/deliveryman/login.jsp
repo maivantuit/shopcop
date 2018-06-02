@@ -19,10 +19,10 @@
 
         <div id="loginFormDeliveryman">
             <div class="headLoginForm">
-                Login Deliveryman
+                Đăng nhập nhân viên giao hàng
             </div>
             <div class="fieldLogin">
-                <form method="POST" action="DangNhapNhanVienKhoServlet">
+                <form method="POST" action="DangNhapNhanVienGiaoHangServlet">
                     <label>Username</label><br>
                     <input type="text" name="taiKhoan" class="login"><br>
                     <label>Password</label><br>

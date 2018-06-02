@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class DangXuatNhanVienKhoServlet
+ * Servlet implementation class DangXuatNhanVienGiaoHangServlet
  */
-
-public class DangXuatNhanVienKhoServlet extends HttpServlet {
+@WebServlet("/DangXuatNhanVienGiaoHangServlet")
+public class DangXuatNhanVienGiaoHangServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DangXuatNhanVienKhoServlet() {
+    public DangXuatNhanVienGiaoHangServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,7 +37,7 @@ public class DangXuatNhanVienKhoServlet extends HttpServlet {
 		HttpSession  session = request.getSession();
 		{              
             session.invalidate();                
-            response.sendRedirect("DangNhapNhanVienKhoServlet");
+            response.sendRedirect("DangXuatNhanVienGiaoHangServlet");
         }
 	}
 

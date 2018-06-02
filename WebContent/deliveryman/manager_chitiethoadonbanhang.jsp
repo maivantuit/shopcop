@@ -40,16 +40,14 @@
 		            String mesStr = (String) request.getAttribute("mesStr");
 		            SanPhamDAO sanphamdao = new SanPhamDAO();
 		            
-		            NguoiGiaoHangDAO nguoiGiaoHangDAO = new NguoiGiaoHangDAO();
-		    		ArrayList<NguoiGiaoHang> listNguoiGiaoHang = nguoiGiaoHangDAO
-		    				.getNhanVienGiaoHang();
+		            
 	%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div id="wrapper">
 		<jsp:include page="menu.jsp"></jsp:include>
 		<div id="rightContent">
 			<form action="/doancntt/DuyetDonHangServlet" method="POST">
-				<h3>Quản lý hóa đơn bán hàng</h3>
+				<h3></h3>
 				<table class="data">
 					<tr class="data">
 						<th class="data" width="30px">STT</th>
@@ -74,21 +72,7 @@
 					<%
 						}
 					%>
-				</table>
-				<div style="text-align: center">
-					<select id="chonNguoiGiaoHang" name="chonNguoiGiaoHangA">
-						<option value="">--Chọn người giao hàng--</option>
-						<%
-							for(NguoiGiaoHang item: listNguoiGiaoHang){
-						%>
-						<option value="<%=item.getMaNV()%>"><%=item.getMaNV()%>:
-							<%=item.getTenNV()%></option>
-						<%
-							}
-						%>
-					</select> <input type="hidden" name="command" value="themdanhmucmoi">
-					<input type="submit" class="button" onclick = "validateForm()" value="Duyệt">
-				</div>
+				</table>				
 			</form>
 		</div>
 		<div class="clear"></div>

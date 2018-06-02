@@ -36,7 +36,7 @@
 		ChiTietHoaDonDAO chitiethoadondao = new ChiTietHoaDonDAO();
 		KhachHangDao khachhangdao = new KhachHangDao();
 		
-		ArrayList<NguoiGiaoHang> listNguoiGiaoHang= (ArrayList<NguoiGiaoHang>)request.getAttribute("listNguoiGiaoHang");
+		
 	%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div id="wrapper">
@@ -51,26 +51,26 @@
 						<th class="data" width="30px">Mã khách Hàng</th>
 						<th class="data" width="30px">Tên khách hàng</th>
 						<th class="data" width="30px">Ngày đặt</th>
+						<th class="data" width="30px">Nhân viên giao hàng</th>
 						<th class="data" width="30px">Tổng tiền(VNĐ)</th>
-						<th class="data" width="75px">Địa chỉ giao hàng</th>
-						
+						<th class="data" width="75px">Địa chỉ giao hàng</th>						
 					</tr>
 					<%
 						int dem = 0;
-														for (HoaDon elemhd : listhoadon) {
-														dem++;
+						for (HoaDon elemhd : listhoadon) {
+							dem++;
 					%>
 					<tr class="data">
 						<td class="data" width="30px"><%=dem%></td>
 						<td class="data" width="30px"><a
-							href="/doancntt/admin/manager_chitiethoadonbanhang.jsp?madh=<%=String.valueOf(elemhd.getMaDH())%>"><%=elemhd.getMaDH()%></a>
+							href="/doancntt/deliveryman/manager_chitiethoadonbanhang.jsp?madh=<%=String.valueOf(elemhd.getMaDH())%>"><%=elemhd.getMaDH()%></a>
 						</td>
 						<td class="data"><%=elemhd.getMaKH()%></td>
 						<td class="data"><%=khachhangdao.getAKhachHang(elemhd.getMaKH()).getTenKH()%></td>
 						<td class="data"><%=elemhd.getNgayDat()%></td>
+						<td class="data"><%=elemhd.getNguoiGiao()%></td>
 						<td class="data"><%=NumberFormat.getInstance().format(elemhd.getTongTien())%></td>
-						<td class="data"><%=elemhd.getDiaChi()%></td>
-						
+						<td class="data"><%=elemhd.getDiaChi()%></td>						
 					</tr>
 					<%
 						}

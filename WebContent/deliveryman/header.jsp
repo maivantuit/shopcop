@@ -16,7 +16,7 @@
             <div class="inHeader">
                 <div class="mosAdmin">
                     Xin chào, Nhân viên giao hàng<br>
-                    <a href="">Trang nhân viên giao hàng</a> | <a href="">Giúp đỡ</a> | <a href="login.html">Đăng xuất</a>
+                    <a href="">Trang nhân viên giao hàng</a> | <a href="">Giúp đỡ</a> | <a href="/doancntt/DangXuatNhanVienGiaoHangServlet">Đăng xuất</a>
                 </div>
                 <div class="clear"></div>
             </div>
