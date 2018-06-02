@@ -56,9 +56,10 @@
                             <td class="data"><%= elementssanpham.getThuongHieu()%></td> 
                              <td class="data" style="background: #e4caca;text-align: center"><%= elementssanpham.getSoLuong()%></td> 
                             <td class="data"><%= NumberFormat.getInstance().format(elementssanpham.getGia())%></td> 
-                            <td class="data" width="90px">
+                            <td class="data" width="150px">
                                 <center>
-                                    <a href="/doancntt/admin/update_danhmuc.jsp?command=updateurl&MaDMSPurl=<%= elementssanpham.getMaDMSP()%>">Sửa</a>&nbsp;&nbsp; | &nbsp;&nbsp;
+                                    <a href="SuaSanPhamServlet?MaSPurl=<%= elementssanpham.getMaSP()%>">Sửa</a>&nbsp;&nbsp; | &nbsp;&nbsp;
+                                    <a href="ThemSanPhamServlet?MaSPurl=<%= elementssanpham.getMaSP()%>">Thêm</a>&nbsp;&nbsp; | &nbsp;&nbsp;
                                     <a href="/doancntt/QuanLyDanhMucServlet?command=deleteurl&MaDMSPurl=<%= elementssanpham.getMaDMSP()%>">Xóa</a>
                                 </center>
                             </td>

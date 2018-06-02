@@ -75,11 +75,11 @@
     <servlet-name>DangXuatAdminServlet</servlet-name>
     <servlet-class>controller.DangXuatAdminServlet</servlet-class>
   </servlet>
-   <servlet>
+  <servlet>
     <servlet-name>DangNhapNhanVienKhoServlet</servlet-name>
     <servlet-class>controller.DangNhapNhanVienKhoServlet</servlet-class>
   </servlet>
-   <servlet>
+  <servlet>
     <servlet-name>TrangChuNhanVienKhoServlet</servlet-name>
     <servlet-class>controller.TrangChuNhanVienKhoServlet</servlet-class>
   </servlet>
@@ -87,6 +87,30 @@
     <servlet-name>DangXuatNhanVienKhoServlet</servlet-name>
     <servlet-class>controller.DangXuatNhanVienKhoServlet</servlet-class>
   </servlet>
+   <servlet>
+    <servlet-name>XoaSanPhamServlet</servlet-name>
+    <servlet-class>controller.XoaSanPhamServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ThemSanPhamServlet</servlet-name>
+    <servlet-class>controller.ThemSanPhamServlet</servlet-class>
+  </servlet>
+   <servlet>
+    <servlet-name>SuaSanPhamServlet</servlet-name>
+    <servlet-class>controller.SuaSanPhamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SuaSanPhamServlet</servlet-name>
+    <url-pattern>/SuaSanPhamServlet</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>ThemSanPhamServlet</servlet-name>
+    <url-pattern>/ThemSanPhamServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XoaSanPhamServlet</servlet-name>
+    <url-pattern>/XoaSanPhamServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>DangXuatNhanVienKhoServlet</servlet-name>
     <url-pattern>/DangXuatNhanVienKhoServlet</url-pattern>

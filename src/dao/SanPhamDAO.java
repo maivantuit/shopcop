@@ -1,5 +1,4 @@
 package dao;
-import connection.DBConnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,8 +7,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelclasses.KhachHang;
+
 import modelclasses.SanPham;
+import connection.DBConnect;
 
 /**
  *
@@ -33,7 +33,17 @@ public class SanPhamDAO {
                 sanpham.setThuongHieu(rs.getString("ThuongHieu"));
                 sanpham.setSoLuong(rs.getString("SoLuong"));
                 sanpham.setHinhAnh(rs.getString("HinhAnh"));
-                sanpham.setGia(rs.getInt("Gia"));                
+                sanpham.setGia(rs.getInt("Gia")); 
+                sanpham.setThoiGianBaoHanh(rs.getString("ThoiGianBaoHanh"));
+                sanpham.setRam(rs.getString("Ram"));
+                sanpham.setKichThuoc(rs.getString("KichThuoc"));
+                sanpham.setMauSac(rs.getString("MauSac"));
+                sanpham.setHeDieuHanh(rs.getString("HeDieuHanh"));
+                sanpham.setChipSet(rs.getString("ChipSet"));
+                sanpham.setCammera(rs.getString("Camera"));
+                sanpham.setBoNhoTrong(rs.getString("BoNhoTrong"));
+                sanpham.setPin(rs.getString("Pin"));
+                sanpham.setCo(rs.getString("Co"));
                 list.add(sanpham);
             }
         } catch (SQLException ex) {
@@ -135,6 +145,40 @@ public class SanPhamDAO {
                 sp.setHinhAnh(rs.getString("HinhAnh"));                                    
             }
             return sp;
+        } catch (SQLException ex) {
+            Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+ // lay 1 khach hang table khach hang bang makh
+    public SanPham getMotSanPham(int masp) {    
+        try {
+            Connection connect = DBConnect.getConnection();
+            String sql = " select * from SanPham where MaSP=? and Co='C'";
+            PreparedStatement ps = connect.prepareCall(sql);
+            ps.setLong(1, masp);
+            ResultSet rs = ps.executeQuery();            
+            SanPham sanpham = new SanPham();
+            while (rs.next()) {                
+            	sanpham.setMaSP(rs.getInt("MaSP"));
+                sanpham.setTenSP(rs.getString("TenSP"));
+                sanpham.setMaDMSP(rs.getString("MaDMSP"));
+                sanpham.setThuongHieu(rs.getString("ThuongHieu"));
+                sanpham.setSoLuong(rs.getString("SoLuong"));
+                sanpham.setHinhAnh(rs.getString("HinhAnh"));
+                sanpham.setGia(rs.getInt("Gia")); 
+                sanpham.setThoiGianBaoHanh(rs.getString("ThoiGianBaoHanh"));
+                sanpham.setRam(rs.getString("Ram"));
+                sanpham.setKichThuoc(rs.getString("KichThuoc"));
+                sanpham.setMauSac(rs.getString("MauSac"));
+                sanpham.setHeDieuHanh(rs.getString("HeDieuHanh"));
+                sanpham.setChipSet(rs.getString("ChipSet"));
+                sanpham.setCammera(rs.getString("Camera"));
+                sanpham.setBoNhoTrong(rs.getString("BoNhoTrong"));
+                sanpham.setPin(rs.getString("Pin"));
+                sanpham.setCo(rs.getString("Co"));                                   
+            }
+            return sanpham;
         } catch (SQLException ex) {
             Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
