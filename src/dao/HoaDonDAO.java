@@ -63,6 +63,31 @@ public class HoaDonDAO {
         return listhd;
     }
  // get table HoaDonDatHang:(DonHang)
+    public ArrayList<HoaDon> getTatCaListHoaDon() {
+        ArrayList<HoaDon> listhd = new ArrayList<HoaDon>();
+        try {
+            Connection connect = DBConnect.getConnection();
+            String sql = " select * from DonHang";
+            PreparedStatement ps = connect.prepareCall(sql);
+            ResultSet rs = ps.executeQuery();            
+            while (rs.next()) {
+                HoaDon hoadon = new HoaDon();
+                hoadon.setMaDH(rs.getInt("MaDH"));
+                hoadon.setMaKH(rs.getInt("MaKH"));
+                hoadon.setNgayDat(rs.getTimestamp("NgayDat"));
+                hoadon.setNguoiGiao(rs.getString("NhanVienGiaoHang"));
+                hoadon.setTinhTrang(rs.getString("TinhTrang"));
+                hoadon.setNgayGiao(rs.getString("NgayGiao"));
+                hoadon.setDiaChi(rs.getString("DiaChiGiaoHang"));
+                hoadon.setTongTien(rs.getInt("TongTien"));
+                listhd.add(hoadon);                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listhd;
+    }
+ // get table HoaDonDatHang:(DonHang)
     public ArrayList<HoaDon> getListHoaDonNhanVienKho() {
         ArrayList<HoaDon> listhd = new ArrayList<HoaDon>();
         try {

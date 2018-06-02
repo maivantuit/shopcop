@@ -59,6 +59,62 @@
     <servlet-name>CapNhatTrangThaiDonHangServlet</servlet-name>
     <servlet-class>controller.CapNhatTrangThaiDonHangServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>QuanLyTatCaDonHangServlet</servlet-name>
+    <servlet-class>controller.QuanLyTatCaDonHangServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DangNhapAdminServlet</servlet-name>
+    <servlet-class>controller.DangNhapAdminServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TrangChuAdminServlet</servlet-name>
+    <servlet-class>controller.TrangChuAdminServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DangXuatAdminServlet</servlet-name>
+    <servlet-class>controller.DangXuatAdminServlet</servlet-class>
+  </servlet>
+   <servlet>
+    <servlet-name>DangNhapNhanVienKhoServlet</servlet-name>
+    <servlet-class>controller.DangNhapNhanVienKhoServlet</servlet-class>
+  </servlet>
+   <servlet>
+    <servlet-name>TrangChuNhanVienKhoServlet</servlet-name>
+    <servlet-class>controller.TrangChuNhanVienKhoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DangXuatNhanVienKhoServlet</servlet-name>
+    <servlet-class>controller.DangXuatNhanVienKhoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DangXuatNhanVienKhoServlet</servlet-name>
+    <url-pattern>/DangXuatNhanVienKhoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TrangChuNhanVienKhoServlet</servlet-name>
+    <url-pattern>/TrangChuNhanVienKhoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DangNhapNhanVienKhoServlet</servlet-name>
+    <url-pattern>/DangNhapNhanVienKhoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DangXuatAdminServlet</servlet-name>
+    <url-pattern>/DangXuatAdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TrangChuAdminServlet</servlet-name>
+    <url-pattern>/TrangChuAdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DangNhapAdminServlet</servlet-name>
+    <url-pattern>/DangNhapAdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QuanLyTatCaDonHangServlet</servlet-name>
+    <url-pattern>/QuanLyTatCaDonHangServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>CapNhatTrangThaiDonHangServlet</servlet-name>
     <url-pattern>/CapNhatTrangThaiDonHangServlet</url-pattern>

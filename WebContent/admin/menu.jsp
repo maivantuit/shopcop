@@ -13,12 +13,13 @@
     <body>
         <div id="leftBar">
             <ul>
-                <li><a href="/doancntt/admin/index.jsp">Trang chủ</a></li>
+                <li><a href="/doancntt/TrangChuAdminServlet">Trang chủ</a></li>
+                <li><a href="/doancntt/NhapHangServlet">Nhập hàng</a></li>
+                <li><a href="/doancntt/DuyetDonHangServlet">Duyệt đơn hàng</a></li>
+                <li><a href="/doancntt/QuanLyTatCaDonHangServlet">Tất cả đơn hàng</a></li>
                 <li><a href="/doancntt/DanhMucSanPhamServlet">Danh mục sản phẩm</a></li>
-                <li><a href="/doancntt/SanPhamServlet">Sản phẩm</a></li>
-                <li><a href="/doancntt/DuyetDonHangServlet">Duyệt đơn hàng</a></li>    
-                <li><a href="/doancntt/NhapHangServlet">Nhập hàng</a></li>            
-                <li><a href="manager_khachhang.jsp">Khách Hàng</a></li>                
+                <li><a href="/doancntt/SanPhamServlet">Sản phẩm</a></li>                                              
+                <li><a href="">Khách Hàng</a></li>                
                 <li><a href="#">Nhân viên kho</a></li>
                 <li><a href="#">Nhân viên giao hàng</a></li>                                                                               
             </ul>

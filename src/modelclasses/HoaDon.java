@@ -22,9 +22,12 @@ public class HoaDon {
     private int maNV;
     private String phuongthucthanhToan;
     private String trangthaigiaoHang;
-    private String diaChi;
+    private String diaChi;    
     private String soDienThoai;
     private String nguoiNhan;
+    private String nguoiGiao;
+    private String NgayGiao;
+    private String tinhTrang;
     private Timestamp ngayDat; // getdate()
     private int tongTien;
 
@@ -98,7 +101,31 @@ public class HoaDon {
         return maDH;
     }
     
-    public int getMaNV() {
+    public String getNguoiGiao() {
+		return nguoiGiao;
+	}
+
+	public void setNguoiGiao(String nguoiGiao) {
+		this.nguoiGiao = nguoiGiao;
+	}
+
+	public String getNgayGiao() {
+		return NgayGiao;
+	}
+
+	public void setNgayGiao(String ngayGiao) {
+		NgayGiao = ngayGiao;
+	}
+
+	public String getTinhTrang() {
+		return tinhTrang;
+	}
+
+	public void setTinhTrang(String tinhTrang) {
+		this.tinhTrang = tinhTrang;
+	}
+
+	public int getMaNV() {
 		return maNV;
 	}
 

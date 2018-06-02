@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login of warehouse staff</title>                
-        <link href="../css/mos-style.css" rel='stylesheet' type='text/css' />
+        <link href="css/mos-style.css" rel='stylesheet' type='text/css' />
     </head>
     <body>
         <div id="header">
@@ -22,11 +22,11 @@
                 Login Warehouse Staff
             </div>
             <div class="fieldLogin">
-                <form method="POST" action="">
+                <form method="POST" action="DangNhapNhanVienKhoServlet">
                     <label>Username</label><br>
-                    <input type="text" class="login"><br>
+                    <input type="text" name="taiKhoan" class="login"><br>
                     <label>Password</label><br>
-                    <input type="password" class="login"><br>
+                    <input type="password" name="matKhau" class="login"><br>
                     <input type="submit" class="button" value="Login">
                 </form>
             </div>
