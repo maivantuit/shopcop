@@ -22,10 +22,13 @@
     <body>
 		<%
 			SanPham sanPham = (SanPham) request.getAttribute("sanPham");
+			String mes = (String)request.getAttribute("mes");
+			String mesThatBai = (String)request.getAttribute("mesThatBai");
 		%>       
         <jsp:include page="header.jsp"></jsp:include>
             <div id="wrapper">
-            <jsp:include page="menu.jsp"></jsp:include> 
+            <jsp:include page="menu.jsp"></jsp:include>
+            <form action="SuaSanPhamServlet" method="POST"> 
                 <div id="rightContent">
                     <h3>Cập nhật sản phẩm</h3>                  
                     <table style="text-align: left">
@@ -89,8 +92,23 @@
                     	</tr>                   	
                     </table>                    
             </div>
+            </form>
             <div class="clear"></div> 			
             <jsp:include page="footer.jsp"></jsp:include> 
         </div>
+        <%
+        	if(mes!=null){
+        %>
+        	<script type="text/javascript">
+        		alert('Sửa thông tin sản phẩm thành công!');
+        	</script>
+        <%} %>
+         <%
+        	if(mesThatBai!=null){
+        %>
+        	<script type="text/javascript">
+        		alert('Sửa thông tin sản phẩm thành công!');
+        	</script>
+        <%} %>
     </body>
 </html>

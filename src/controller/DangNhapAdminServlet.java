@@ -52,6 +52,9 @@ public class DangNhapAdminServlet extends HttpServlet {
 				// sesstion:
 				HttpSession sesstion = request.getSession();
 				sesstion.setAttribute("nhanVienInstace", nhanVienInstace);
+			}else{
+				String mes="Đăng nhập thất bại!";
+				request.setAttribute("mes", mes);
 			}
 		} catch (SQLException e) {			
 			e.printStackTrace();

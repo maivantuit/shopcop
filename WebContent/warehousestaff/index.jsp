@@ -16,9 +16,13 @@
     </head>
     <body>
     <%
+    
     HttpSession sesstion = request.getSession();
     NhanVien nhanVienKhoInstace = (NhanVien)sesstion.getAttribute("nhanVienKhoInstace");
     %>
+    <%
+        String mes = (String)request.getAttribute("mes");
+        %>
     <%
     	if(nhanVienKhoInstace!=null){
     %>
@@ -31,5 +35,12 @@
         <%}else{%>
        	<h1>Vui lòng <a href="/doancntt/DangNhapNhanVienKhoServlet">đăng nhập</a>!</h1>
        <%} %>
+   <%
+        	if(mes!=null){
+        %>
+        	<script type="text/javascript">
+        		alert('Đăng nhập thất bại!');
+        	</script>
+        <%} %>    
     </body>
 </html>

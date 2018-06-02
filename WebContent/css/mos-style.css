@@ -298,14 +298,14 @@ tr.data:hover small {color: #5b5b5b;}
 
 #thongTinPhieuNhap {
     width:50%;
-    background:#ff00d4;
+    background:#e4cae0;
     height:100%;
     float:left;
 }
 
 #thongTinChiTietPhieuNhap {
     width:50%;
-    background:#00ff36;
+    background:#e4cae0;
     height:100%;
     float:right;
 }

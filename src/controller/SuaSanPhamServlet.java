@@ -56,13 +56,20 @@ public class SuaSanPhamServlet extends HttpServlet {
 		String kichThuoc = request.getParameter("kichThuoc");
 		String mauSac = request.getParameter("mauSac");
 		String heDieuHanh = request.getParameter("heDieuHanh");
-		String chipSets = request.getParameter("chipSet");
+		String chipSet = request.getParameter("chipSet");
 		String camera = request.getParameter("camera");
 		String boNhoTrong = request.getParameter("boNhoTrong");
 		String pin = request.getParameter("pin");				
-		// Ham Update San Pham:
-		
+		// Ham Update San Pham:		
 		SanPhamDAO sanPhamDAO = new SanPhamDAO();
+		boolean checkSuaSanPham =sanPhamDAO.suaSanPham(tenSanPham, thuongHieu, Integer.parseInt(gia), thoiGianBaoHanh, ram, kichThuoc, mauSac, heDieuHanh, chipSet, camera, boNhoTrong, pin, Integer.parseInt(maSanPham));
+		if(checkSuaSanPham){
+			String mes = "Sửa sản phẩm thành công";
+			request.setAttribute("mes", mes);
+		}else{
+			String mesThatBai = "Sửa sản phẩm thất bại";
+			request.setAttribute("mesThatBai", mesThatBai);
+		}
 		SanPham sanPham=sanPhamDAO.getMotSanPham(Integer.parseInt(maSanPham));
 		request.setAttribute("sanPham", sanPham);
 		RequestDispatcher rd = request

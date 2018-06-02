@@ -13,6 +13,7 @@
         <link href="css/mos-style.css" rel='stylesheet' type='text/css' />
     </head>
     <body>
+     
         <div id="header">
             <div class="inHeaderLogin"></div>
         </div>
@@ -31,5 +32,6 @@
                 </form>
             </div>
         </div>
+         
     </body>
 </html>

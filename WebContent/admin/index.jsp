@@ -20,6 +20,10 @@
     NhanVien nhanVienInstace = (NhanVien)sesstion.getAttribute("nhanVienInstace");
     %>
     <%
+    String mes = (String)request.getAttribute("mes");
+    %>
+    
+    <%
     	if(nhanVienInstace!=null){
     %>
         <jsp:include page="header.jsp"></jsp:include>
@@ -31,5 +35,12 @@
        <%}else{%>
        	<h1>Vui lòng <a href="/doancntt/DangNhapAdminServlet">đăng nhập</a>!</h1>
        <%} %>
+       <%
+        	if(mes!=null){
+        %>
+        	<script type="text/javascript">
+        		alert('Đăng nhập thất bại!');
+        	</script>
+        <%} %>    
     </body>
 </html>

@@ -108,25 +108,24 @@
                                     <h2 style="font-size: 16px"><a>Hoặc mua trả góp 0% bằng thẻ tín dụng chỉ từ 1.402.167 VND/tháng</a></h2>
                                 <div >                                   
                                     <div>
-                                    	<table>
-                                    	<tr>
-                                    		<th>Đặc điểm</th>
-                                    		<th>Nội dung chi tiết</th>
+                                    	<table style="border: 1px solid black">
+                                    	<tr style="border: 1px solid black">
+                                    		<th style="border: 1px solid black; background: #ccc">Đặc điểm</th>
+                                    		<th style="border: 1px solid black; background: #ccc">Nội dung chi tiết</th>
                                     	</tr>
-                                    	<tr>
-                                    		<td>MaSP</td>
-                                    		<td></td>                                    		
+                                    	<tr style="border: 1px solid black">
+                                    		<td style="border: 1px solid black">MaSP</td>
+                                    		<td><%=sanpham.getMaSP() %></td>                                    		
                                     	</tr>	
-                                    	<tr><td>ThoiGianBaoHanh</td><td></td></tr>
-                                    	<tr><td>Ram</td><td></td></tr>
-                                    	<tr><td>KichThuoc</td><td></td></tr>
-                                    	<tr><td>MauSac</td><td></td></tr>
-                                    	<tr><td>ManHinh</td><td></td></tr>
-                                    	<tr><td>HeDieuHanh</td><td></td></tr>
-                                    	<tr><td>ChipSet</td><td></td></tr>
-                                    	<tr><td>Camera</td><td></td></tr>
-                                    	<tr><td>BoNhoTrong</td><td></td></tr>
-                                    	<tr><td>Pin</td><td></td></tr>                                    	
+                                    	<tr style="border: 1px solid black"><td style="border: 1px solid black">ThoiGianBaoHanh</td><td><%=sanpham.getThoiGianBaoHanh() %></td></tr>
+                                    	<tr style="border: 1px solid black"><td style="border: 1px solid black">Ram</td><td><%=sanpham.getRam() %></td></tr>
+                                    	<tr style="border: 1px solid black"><td style="border: 1px solid black">KichThuoc</td><td><%=sanpham.getKichThuoc() %></td></tr>
+                                    	<tr style="border: 1px solid black"><td style="border: 1px solid black">MauSac</td><td><%=sanpham.getMauSac() %></td></tr>                                    	
+                                    	<tr style="border: 1px solid black"><td style="border: 1px solid black">HeDieuHanh</td><td><%=sanpham.getHeDieuHanh() %></td></tr>
+                                    	<tr style="border: 1px solid black"><td style="border: 1px solid black">ChipSet</td><td><%=sanpham.getChipSet() %></td></tr>
+                                    	<tr style="border: 1px solid black"><td style="border: 1px solid black">Camera</td><td><%=sanpham.getCammera() %></td></tr>
+                                    	<tr style="border: 1px solid black"><td style="border: 1px solid black">BoNhoTrong</td><td><%=sanpham.getBoNhoTrong() %></td></tr>
+                                    	<tr style="border: 1px solid black"><td style="border: 1px solid black">Pin</td><td><%=sanpham.getPin() %></td></tr>                                    	
                                     	</table>
                                     </div>
                                 </div>

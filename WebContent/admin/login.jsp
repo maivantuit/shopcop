@@ -13,6 +13,9 @@
         <link href="css/mos-style.css" rel='stylesheet' type='text/css' />
     </head>
     <body>
+    	 <%
+        String mes = (String)request.getAttribute("mes");
+        %>
         <div id="header">
             <div class="inHeaderLogin"></div>
         </div>
@@ -31,5 +34,12 @@
                 </form>
             </div>
         </div>
+       <%
+        	if(mes!=null){
+        %>
+        	<script type="text/javascript">
+        		alert('Sửa thông tin sản phẩm thành công!');
+        	</script>
+        <%} %>
     </body>
 </html>

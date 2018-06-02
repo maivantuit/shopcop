@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import modelclasses.SanPham;
 import connection.DBConnect;
 
@@ -20,7 +19,7 @@ public class SanPhamDAO {
     // lấy danh sách sản phẩm:
     public static ArrayList<SanPham> getListSanPhamALL() {
         Connection connect = DBConnect.getConnection();
-        String sql = "select * from SanPham";
+        String sql = "select * from SanPham where Co='C'";
         ArrayList<SanPham> list = new ArrayList<SanPham>();
         try {
             PreparedStatement ps = connect.prepareCall(sql);
@@ -106,11 +105,23 @@ public class SanPhamDAO {
         ResultSet rs = ps.executeQuery();
         SanPham sanpham = new SanPham();
         while (rs.next()) {
-            sanpham.setMaSP(rs.getInt("MaSP"));
-            sanpham.setTenSP(rs.getString("TenSP"));
-            sanpham.setThuongHieu(rs.getString("ThuongHieu"));
-            sanpham.setHinhAnh(rs.getString("HinhAnh"));
-            sanpham.setGia(rs.getInt("Gia"));            
+        	 sanpham.setMaSP(rs.getInt("MaSP"));
+             sanpham.setTenSP(rs.getString("TenSP"));
+             sanpham.setMaDMSP(rs.getString("MaDMSP"));
+             sanpham.setThuongHieu(rs.getString("ThuongHieu"));
+             sanpham.setSoLuong(rs.getString("SoLuong"));
+             sanpham.setHinhAnh(rs.getString("HinhAnh"));
+             sanpham.setGia(rs.getInt("Gia")); 
+             sanpham.setThoiGianBaoHanh(rs.getString("ThoiGianBaoHanh"));
+             sanpham.setRam(rs.getString("Ram"));
+             sanpham.setKichThuoc(rs.getString("KichThuoc"));
+             sanpham.setMauSac(rs.getString("MauSac"));
+             sanpham.setHeDieuHanh(rs.getString("HeDieuHanh"));
+             sanpham.setChipSet(rs.getString("ChipSet"));
+             sanpham.setCammera(rs.getString("Camera"));
+             sanpham.setBoNhoTrong(rs.getString("BoNhoTrong"));
+             sanpham.setPin(rs.getString("Pin"));
+             sanpham.setCo(rs.getString("Co"));           
         }
         return sanpham;
     }
@@ -218,17 +229,67 @@ public class SanPhamDAO {
  		}
  		return null;
  	}
+ // cập nhật dữ liệu khách hàng:
+   	public boolean suaSanPham(String tenSP, String thuongHieu, int gia,
+			String thoiGianBaoHanh, String ram, String kichThuoc,
+			String mauSac, String heDieuHanh, String chipSet, String cammera,
+			String boNhoTrong, String pin,int maSP){
+   		Connection con = DBConnect.getConnection();
+   		String sql = String.format("update SanPham set TenSP=N'%s', ThuongHieu=N'%s', Gia='%s', " +
+   				"ThoiGianBaoHanh=N'%s',Ram='%s',KichThuoc=N'%s',MauSac=N'%s', HeDieuHanh=N'%s', " +
+   				"ChipSet='%s', Camera='%s', BoNhoTrong='%s', Pin=N'%s' where MaSP='%s'",
+   				tenSP,thuongHieu,gia,thoiGianBaoHanh,ram,kichThuoc,mauSac,heDieuHanh,chipSet,cammera,boNhoTrong,pin,maSP);
+   		try {
+   			Statement stmt = con.createStatement();
+   			stmt.executeUpdate(sql);
+   			return true;
+   		} catch (Exception e) {
+   			e.printStackTrace();
+   		}
+   		return false;
+   	}
+ // tao moi 1 lich trinh xe:
+ 	public boolean themMoiSanPham(String tenSP,String maDanhMuc, String thuongHieu, String gia,
+			String thoiGianBaoHanh, String ram, String kichThuoc,
+			String mauSac, String heDieuHanh, String chipSet, String cammera,
+			String boNhoTrong, String pin) {
+ 		Connection con = DBConnect.getConnection();
+ 		String sql = null;
+ 		try {			
+ 			sql = String.format("insert into SanPham(TenSP,MaDMSP,ThuongHieu,Gia,ThoiGianBaoHanh," +
+ 					"Ram,KichThuoc,MauSac,HeDieuHanh,ChipSet,Camera,BoNhoTrong,Pin,Co) " +
+ 					"values (N'%s','%s','%s','%s',N'%s'," +
+ 					"'%s','%s',N'%s','%s','%s',N'%s'," +
+ 					"'%s','%s','C')",tenSP,maDanhMuc, thuongHieu, gia, thoiGianBaoHanh, ram,kichThuoc,mauSac,heDieuHanh,chipSet,cammera,boNhoTrong,pin);
+ 		} catch (Exception e) {
+ 			e.printStackTrace();
+ 		}
+ 		try {
+ 			Statement stmt = con.createStatement();
+ 			stmt.executeUpdate(sql);
+ 			return true;
+ 		} catch (Exception e) {
+ 			e.printStackTrace();
+ 		}
+ 		return false;
+ 	}
+   	public static boolean deleteSanPham(String maSP){
+ 		Connection con = DBConnect.getConnection();
+ 		String sql = String.format("update SanPham " +
+ 				"set Co = 'K'" +
+ 				"where MaSP = '%s'",maSP);
+ 		try {
+ 			Statement stmt = con.createStatement();
+ 			stmt.executeUpdate(sql);
+ 			return true;
+ 		} catch (Exception e) {
+ 			e.printStackTrace();
+ 		}
+ 		return false;
+ 	}
 
     public static void main(String[] args) throws SQLException {
-        SanPhamDAO sanphamdao = new SanPhamDAO();
-        ArrayList<SanPham> list = sanphamdao.timKiemSanPham("iphone");
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).getMaSP() + " - " + list.get(i).getTenSP());
-        }
-        for (SanPham item : list) {
-            System.out.println(item.getMaSP() + " - " + item.getTenSP() + "- " + item.getGia());
-        }
-        //
-        System.out.println("hien thi thong tin san pham: " + sanphamdao.getSanPham(1).getMaSP());
+        SanPhamDAO sanPham = new SanPhamDAO();
+        sanPham.themMoiSanPham("A","10002","", "120300", "","", "", "", "", "", "", "", "");
     }
 }

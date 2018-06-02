@@ -22,7 +22,28 @@ public class SanPham {
     private String pin;    
     private String soLuong;
     private String co;
-    
+    public SanPham(){
+    	
+    }
+	public SanPham( String tenSP, String thuongHieu, int gia,
+			String thoiGianBaoHanh, String ram, String kichThuoc,
+			String mauSac, String heDieuHanh, String chipSet, String cammera,
+			String boNhoTrong, String pin,int maSP) {
+		super();
+		this.maSP = maSP;
+		this.tenSP = tenSP;
+		this.thuongHieu = thuongHieu;
+		this.gia = gia;
+		this.thoiGianBaoHanh = thoiGianBaoHanh;
+		this.ram = ram;
+		this.kichThuoc = kichThuoc;
+		this.mauSac = mauSac;
+		this.heDieuHanh = heDieuHanh;
+		this.chipSet = chipSet;
+		this.cammera = cammera;
+		this.boNhoTrong = boNhoTrong;
+		this.pin = pin;
+	}
 	public String getCo() {
 		return co;
 	}
