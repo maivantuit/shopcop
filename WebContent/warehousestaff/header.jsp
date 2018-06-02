@@ -15,8 +15,8 @@
         <div id="header">
             <div class="inHeader">
                 <div class="mosAdmin">
-                    Xin chào, Mai Văn Tú<br>
-                    <a href="">Quản trị website</a> | <a href="">Giúp đỡ</a> | <a href="login.html">Đăng xuất</a>
+                    Xin chào, Nhân Viên Kho<br>
+                    <a href="">Quản trị kho</a> | <a href="">Giúp đỡ</a> | <a href="login.html">Đăng xuất</a>
                 </div>
                 <div class="clear"></div>
             </div>

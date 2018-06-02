@@ -55,6 +55,14 @@
     <servlet-name>DanhMucSanPhamServlet</servlet-name>
     <servlet-class>controller.DanhMucSanPhamServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>CapNhatTrangThaiDonHangServlet</servlet-name>
+    <servlet-class>controller.CapNhatTrangThaiDonHangServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CapNhatTrangThaiDonHangServlet</servlet-name>
+    <url-pattern>/CapNhatTrangThaiDonHangServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>DanhMucSanPhamServlet</servlet-name>
     <url-pattern>/DanhMucSanPhamServlet</url-pattern>

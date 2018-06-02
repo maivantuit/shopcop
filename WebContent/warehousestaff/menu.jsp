@@ -14,9 +14,10 @@
     <body>
         <div id="leftBar">
             <ul>
-                <li><a href="/doancntt/admin/index.jsp">Trang chủ</a></li>                
-                <li><a href="manager_hoadonbanhang.jsp">Xem hóa đơn</a></li>
-                <li><a href="manager_hoadonbanhang.jsp">Thông tin tài khoản</a></li>                                 
+                <li><a href="/doancntt/warehousestaff/index.jsp">Trang chủ</a></li> 
+                <li><a href="/doancntt/CapNhatTrangThaiDonHangServlet">Cập nhật trạng thái ĐH</a></li>               
+                <li><a href="">Xem hóa đơn</a></li>
+                <li><a href="">Thông tin tài khoản</a></li>                                 
             </ul>
         </div>
     </body>

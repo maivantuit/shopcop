@@ -16,7 +16,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Quản lý hóa đơn bán hàng</title>
+<title>Cập nhật trạng thái đơn hàng</title>
 <link href="css/mos-style.css" rel='stylesheet' type='text/css' />
 <script type="text/javascript">
 /* 	function validateForm() {
@@ -29,13 +29,13 @@
 </script>
 </head>
 <body>
-
 	<%
 		ArrayList<HoaDon> listhoadon =(ArrayList<HoaDon>) request.getAttribute("listhoadon");
 		String mesStr = (String) request.getAttribute("mesStr");
+		String mesStr2 = (String) request.getAttribute("mesStr2");
+		String mesStr3 = (String) request.getAttribute("mesStr3");
 		ChiTietHoaDonDAO chitiethoadondao = new ChiTietHoaDonDAO();
-		KhachHangDao khachhangdao = new KhachHangDao();
-		
+		KhachHangDao khachhangdao = new KhachHangDao();		
 		ArrayList<NguoiGiaoHang> listNguoiGiaoHang= (ArrayList<NguoiGiaoHang>)request.getAttribute("listNguoiGiaoHang");
 	%>
 	<jsp:include page="header.jsp"></jsp:include>
@@ -52,18 +52,17 @@
 						<th class="data" width="30px">Tên khách hàng</th>
 						<th class="data" width="30px">Ngày đặt</th>
 						<th class="data" width="30px">Tổng tiền(VNĐ)</th>
-						<th class="data" width="75px">Địa chỉ giao hàng</th>
-						
+						<th class="data" width="75px">Địa chỉ giao hàng</th>						
 					</tr>
 					<%
 						int dem = 0;
-														for (HoaDon elemhd : listhoadon) {
-														dem++;
+						for (HoaDon elemhd : listhoadon) {
+						dem++;
 					%>
 					<tr class="data">
 						<td class="data" width="30px"><%=dem%></td>
 						<td class="data" width="30px"><a
-							href="/doancntt/admin/manager_chitiethoadonbanhang.jsp?madh=<%=String.valueOf(elemhd.getMaDH())%>"><%=elemhd.getMaDH()%></a>
+							href="/doancntt/warehousestaff/ChiTietHoaDonBanDang.jsp?madh=<%=String.valueOf(elemhd.getMaDH())%>"><%=elemhd.getMaDH()%></a>
 						</td>
 						<td class="data"><%=elemhd.getMaKH()%></td>
 						<td class="data"><%=khachhangdao.getAKhachHang(elemhd.getMaKH()).getTenKH()%></td>
@@ -86,7 +85,25 @@
 		if(mesStr!=null){
 	%>
 	<script type="text/javascript">
-		alert('Duyệt đơn hàng thành công');
+		alert('Cập nhật trạng thái đơn hàng thành công!');
+	</script>
+	<%
+		}
+	%>
+	<%
+		if(mesStr2!=null){
+	%>
+	<script type="text/javascript">
+		alert('Vui lòng nhập ngày giao!');
+	</script>
+	<%
+		}
+	%>
+	<%
+		if(mesStr3!=null){
+	%>
+	<script type="text/javascript">
+		alert('Vui lòng chọn trạng thái!');
 	</script>
 	<%
 		}

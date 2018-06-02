@@ -62,6 +62,28 @@ public class HoaDonDAO {
         }
         return listhd;
     }
+ // get table HoaDonDatHang:(DonHang)
+    public ArrayList<HoaDon> getListHoaDonNhanVienKho() {
+        ArrayList<HoaDon> listhd = new ArrayList<HoaDon>();
+        try {
+            Connection connect = DBConnect.getConnection();
+            String sql = " select * from DonHang where TinhTrang=N'Đang đóng gói và gửi đi' and NgayGiao is null";
+            PreparedStatement ps = connect.prepareCall(sql);
+            ResultSet rs = ps.executeQuery();            
+            while (rs.next()) {
+                HoaDon hoadon = new HoaDon();
+                hoadon.setMaDH(rs.getInt("MaDH"));
+                hoadon.setMaKH(rs.getInt("MaKH"));
+                hoadon.setNgayDat(rs.getTimestamp("NgayDat"));               
+                hoadon.setDiaChi(rs.getString("DiaChiGiaoHang"));
+                hoadon.setTongTien(rs.getInt("TongTien"));
+                listhd.add(hoadon);                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listhd;
+    }
        // xem table Hóa đơn theo 1 mã khách hàng:
     public static ArrayList<HoaDon> getListHoaDonHaveCode(String makh) {
         ArrayList<HoaDon> list = new ArrayList<HoaDon>();
@@ -138,6 +160,19 @@ public class HoaDonDAO {
   		}
   		return false;
   	}
+ // cập nhật dữ liệu đơn hàng của nhân viên kho:
+   	public boolean capNhatTrangThaiDonHang(String tinhTrangDonHang,String ngayGiao, String maDH){
+   		Connection con = DBConnect.getConnection();
+   		String sql = String.format("update DonHang set TinhTrang=N'%s', NgayGiao='%s' where MaDH='%s'",tinhTrangDonHang,ngayGiao,maDH);
+   		try {
+   			Statement stmt = con.createStatement();
+   			stmt.executeUpdate(sql);
+   			return true;
+   		} catch (Exception e) {
+   			e.printStackTrace();
+   		}
+   		return false;
+   	}
 
     public static void main(String[] args) throws SQLException {
         //(int maKH, int maND, double tongTien, String phuongthucthanhToan, String diaChi)
