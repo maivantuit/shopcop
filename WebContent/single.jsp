@@ -6,6 +6,7 @@
 
 <%@page import="modelclasses.SanPham"%>
 <%@page import="dao.SanPhamDAO"%>
+<%@page import="java.text.NumberFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -98,7 +99,7 @@
                             <div class="single-para">
                                 <h4><%= sanpham.getTenSP()%></h4>
                                 <div class="para-grid">
-                                    <span  class="add-to">Giá: <%= sanpham.getGia()%></span>
+                                    <span  class="add-to">Giá: <%= NumberFormat.getInstance().format(sanpham.getGia())%></span>
                                     <div class="check_button">
                                     	<a href="GioHangServlet?command=plus&maSP=<%= sanpham.getMaSP()%>"> Đặt hàng</a>
                                     </div> 				

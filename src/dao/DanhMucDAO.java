@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +36,25 @@ public class DanhMucDAO {
         return list;
        
     }
+    public DanhMuc getDanhMuc(String maDMSP) {
+        Connection connect = DBConnect.getConnection();
+        String sql = "select * from DanhMucSanPham where MaDMSP='"+maDMSP+"'";
+        
+        DanhMuc danhmuc = new DanhMuc();
+        try {
+            PreparedStatement ps = connect.prepareCall(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {               
+                danhmuc.setMaDMSP(rs.getString("MaDMSP"));
+                danhmuc.setTenDMSP(rs.getString("TenDMSP"));                               
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error SQLException: " + ex.getMessage());
+        }
+        return danhmuc;
+       
+    }
+
 
     // thêm mới một danh mục dữ liệu:
     public boolean InsertDanhMuc(DanhMuc danhmuc)  {
@@ -65,6 +85,21 @@ public class DanhMucDAO {
         }
         return false;
     }
+ // cập nhật dữ liệu khách hàng:
+  	public static boolean updateSoLuongSanPham(String tenDanhMuc, String maDMSP){
+  		Connection con = DBConnect.getConnection();
+  		String sql = String.format("update DanhMucSanPham " +
+  				"set TenDMSP = '%s'" +
+  				"where MaDMSP = '%s'",tenDanhMuc,maDMSP);
+  		try {
+  			Statement stmt = con.createStatement();
+  			stmt.executeUpdate(sql);
+  			return true;
+  		} catch (Exception e) {
+  			e.printStackTrace();
+  		}
+  		return false;
+  	}
     // xóa dữ liệu danh mục:
     public boolean  DeleteDanhMuc(String madanhmuc){
         try {

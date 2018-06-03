@@ -11,6 +11,7 @@
 <%@page import="modelclasses.GioHang"%>
 <%@page import="modelclasses.KhachHang"%>
 <%@page import="modelclasses.DanhMuc"%>
+<%@page import="java.text.NumberFormat"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -100,7 +101,7 @@
 														<a><%=list.getValue().getSanPham().getTenSP()%></a>
 													</h4>
 													x<%=list.getValue().getSoLuong()%>
-													<span class="actual"> <%=list.getValue().getSanPham().getGia()%>
+													<span class="actual"> <%=NumberFormat.getInstance().format(list.getValue().getSanPham().getGia())%>
 														VNĐ
 													</span>
 												</div>
@@ -113,7 +114,7 @@
 									</div>
 									<div class="total">
 										<div class="total_left">TỔNG GIỎ HÀNG :</div>
-										<div class="total_right"><%=giohang.TinhTongTienTrongGioHang()%>
+										<div class="total_right"><%=NumberFormat.getInstance().format(giohang.TinhTongTienTrongGioHang())%>
 											VNĐ
 										</div>
 										<div class="clearfix"></div>

@@ -16,13 +16,13 @@
         <title>Cập nhật danh mục</title>
 
         
-        <link href="../css/mos-style.css" rel='stylesheet' type='text/css' />
+        <link href="css/mos-style.css" rel='stylesheet' type='text/css' />
 
     </head>
     <body>
         <%
-            DanhMucDAO danhmucdao = new DanhMucDAO();
-            ArrayList<DanhMuc> listdanhmuc = danhmucdao.getListDanhMuc();
+           
+            DanhMuc danhmuc = (DanhMuc)request.getAttribute("danhmuc");
         %>
         <jsp:include page="header.jsp"></jsp:include>
             <div id="wrapper">
@@ -31,31 +31,16 @@
 
                 <div id="rightContent">
                     <h3>Cập nhật danh mục</h3>
-                    <form action="/doancntt/QuanLyDanhMucServlet" method="POST">
+                    <form action="/doancntt/CapNhatDanhMucServlet" method="POST">
                         <table width="95%">                        
                             <tr>
                                 <td><b>Tên danh mục</b></td>
-                                <td><input type="text" class="panjang" name="tendanhmuc"></td>
-                            </tr>                        
-                            <tr>
-                                <td><b>Nhà Sản Xuất</b></td>
-                                <td>
-                                    <select name="manhasanxuat">
-                                        <option selected>-- Nhà sản xuất --</option>
-                                    <%
-                                        for (DanhMuc dm : listdanhmuc) {
-                                    %>
-                                    <option value="<%= dm.getMaNSX()%>"><%= dm.getMaNSX()%> - <%= dm.getTenDMSP()%></option>
-                                    <%}%>
-                                    </select>
-                                </td>
-                            </tr>                        
+                                <td><input type="text" class="tenDanhMuc" value="<%=danhmuc.getTenDMSP() %>" name="tendanhmuc"></td>
+                            </tr>                                                                           
                         <tr>
                             <td></td>
                             <td>
-                                <input type="hidden" name="command" value="updateurl">
-                                <input type="hidden" name="MaDMSPurl" value="<%= request.getParameter("MaDMSPurl") %>">
-                                <input type="submit" class="button" value="Lưu">                                                                
+                                <button type="submit" value="submit" name="submit">Cập nhật</button>                                                               
                             </td>
                         </tr>
                     </table>

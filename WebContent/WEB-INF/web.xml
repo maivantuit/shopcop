@@ -115,6 +115,38 @@
     <servlet-name>DangXuatNhanVienGiaoHangServlet</servlet-name>
     <servlet-class>controller.DangXuatNhanVienGiaoHangServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>XemKhachHangServlet</servlet-name>
+    <servlet-class>controller.XemKhachHangServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>XemNhanVienGiaoHangServlet</servlet-name>
+    <servlet-class>controller.XemNhanVienGiaoHangServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CapNhatDanhMucServlet</servlet-name>
+    <servlet-class>controller.CapNhatDanhMucServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>XemNhanVienKhoServlet</servlet-name>
+    <servlet-class>controller.XemNhanVienKhoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CapNhatDanhMucServlet</servlet-name>
+    <url-pattern>/CapNhatDanhMucServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XemNhanVienGiaoHangServlet</servlet-name>
+    <url-pattern>/XemNhanVienGiaoHangServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XemNhanVienKhoServlet</servlet-name>
+    <url-pattern>/XemNhanVienKhoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XemKhachHangServlet</servlet-name>
+    <url-pattern>/XemKhachHangServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>DangXuatNhanVienGiaoHangServlet</servlet-name>
     <url-pattern>/DangXuatNhanVienGiaoHangServlet</url-pattern>

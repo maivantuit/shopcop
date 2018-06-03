@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>checkout success</title>
+        <title>Đặt hàng thành công</title>
     </head>
     <body>
         <jsp:include page="header.jsp"></jsp:include>       

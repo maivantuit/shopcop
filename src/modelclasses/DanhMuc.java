@@ -5,7 +5,6 @@ package modelclasses;
  * @author CỌP
  */
 public class DanhMuc {
-
     private String MaDMSP;
     private String TenDMSP;
     private String MaNSX;

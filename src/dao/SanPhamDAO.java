@@ -257,10 +257,10 @@ public class SanPhamDAO {
  		String sql = null;
  		try {			
  			sql = String.format("insert into SanPham(TenSP,MaDMSP,ThuongHieu,Gia,ThoiGianBaoHanh," +
- 					"Ram,KichThuoc,MauSac,HeDieuHanh,ChipSet,Camera,BoNhoTrong,Pin,Co) " +
+ 					"Ram,KichThuoc,MauSac,HeDieuHanh,ChipSet,Camera,BoNhoTrong,Pin,Co,HinhAnh) " +
  					"values (N'%s','%s','%s','%s',N'%s'," +
  					"'%s','%s',N'%s','%s','%s',N'%s'," +
- 					"'%s','%s','C')",tenSP,maDanhMuc, thuongHieu, gia, thoiGianBaoHanh, ram,kichThuoc,mauSac,heDieuHanh,chipSet,cammera,boNhoTrong,pin);
+ 					"'%s','%s','C','images/SamSungGalaxyS7Edge.jpg')",tenSP,maDanhMuc, thuongHieu, gia, thoiGianBaoHanh, ram,kichThuoc,mauSac,heDieuHanh,chipSet,cammera,boNhoTrong,pin);
  		} catch (Exception e) {
  			e.printStackTrace();
  		}

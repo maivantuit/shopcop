@@ -65,7 +65,7 @@
 							href="/doancntt/warehousestaff/ChiTietHoaDonBanDang.jsp?madh=<%=String.valueOf(elemhd.getMaDH())%>"><%=elemhd.getMaDH()%></a>
 						</td>
 						<td class="data"><%=elemhd.getMaKH()%></td>
-						<td class="data"><%=khachhangdao.getAKhachHang(elemhd.getMaKH()).getTenKH()%></td>
+						<td class="data"><%=elemhd.getNguoiNhan()%></td>
 						<td class="data"><%=elemhd.getNgayDat()%></td>
 						<td class="data"><%=NumberFormat.getInstance().format(elemhd.getTongTien())%></td>
 						<td class="data"><%=elemhd.getDiaChi()%></td>

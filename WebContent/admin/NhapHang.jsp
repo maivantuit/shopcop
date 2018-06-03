@@ -1,6 +1,7 @@
 <%@page import="modelclasses.*"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.DanhMucDAO"%>
+<%@page import="java.text.NumberFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -121,8 +122,8 @@
 							<td><%=item.getMaPhieuNhap() %></td>
 							<td><%=item.getMaSanPham() %></td>
 							<td><%=item.getSoLuong() %></td>
-							<td><%=item.getDonGia() %></td>
-							<td><%=Integer.parseInt(item.getDonGia())*Integer.parseInt(item.getSoLuong()) %></td>
+							<td><%=NumberFormat.getInstance().format(Integer.parseInt(item.getDonGia())) %></td>
+							<td><%=NumberFormat.getInstance().format(Integer.parseInt(item.getDonGia())*Integer.parseInt(item.getSoLuong())) %></td>
 							<%tongTien=tongTien+(Integer.parseInt(item.getDonGia())*Integer.parseInt(item.getSoLuong())); %>
 						</tr>
 						<%} %>
@@ -131,7 +132,7 @@
 					</table>
 			</div>
 			<div>
-				<h3>Tổng tiền: <%=tongTien %> VNĐ</h3>
+				<h3>Tổng tiền: <%=NumberFormat.getInstance().format(tongTien) %> VNĐ</h3>
 			</div>
 		</div>
 		<div class="clear"></div>

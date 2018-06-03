@@ -53,7 +53,8 @@ public class HoaDonDAO {
                 HoaDon hoadon = new HoaDon();
                 hoadon.setMaDH(rs.getInt("MaDH"));
                 hoadon.setMaKH(rs.getInt("MaKH"));
-                hoadon.setNgayDat(rs.getTimestamp("NgayDat"));               
+                hoadon.setNgayDat(rs.getTimestamp("NgayDat"));
+                hoadon.setNguoiNhan(rs.getString("NguoiNhan"));
                 hoadon.setDiaChi(rs.getString("DiaChiGiaoHang"));
                 hoadon.setTongTien(rs.getInt("TongTien"));
                 listhd.add(hoadon);                
@@ -102,6 +103,7 @@ public class HoaDonDAO {
                 hoadon.setMaKH(rs.getInt("MaKH"));
                 hoadon.setNgayDat(rs.getTimestamp("NgayDat"));               
                 hoadon.setDiaChi(rs.getString("DiaChiGiaoHang"));
+                hoadon.setNguoiNhan(rs.getString("NguoiNhan"));
                 hoadon.setTongTien(rs.getInt("TongTien"));
                 listhd.add(hoadon);                
             }
@@ -126,6 +128,7 @@ public class HoaDonDAO {
                 hoadon.setNgayDat(rs.getTimestamp("NgayDat"));               
                 hoadon.setDiaChi(rs.getString("DiaChiGiaoHang"));
                 hoadon.setNguoiGiao(rs.getString("NhanVienGiaoHang"));
+                hoadon.setNguoiNhan(rs.getString("NguoiNhan"));
                 hoadon.setTongTien(rs.getInt("TongTien"));
                 listhd.add(hoadon);                
             }

@@ -43,8 +43,8 @@
                         <td class="data"><%= elementsdanhmuc.getTenDMSP()%></td>                            
                         <td class="data" width="90px">
                     <center>
-                        <a href="/doancntt/admin/update_danhmuc.jsp?command=updateurl&MaDMSPurl=<%= elementsdanhmuc.getMaDMSP()%>">Sửa</a>&nbsp;&nbsp; | &nbsp;&nbsp;
-                        <a href="/doancntt/QuanLyDanhMucServlet?command=deleteurl&MaDMSPurl=<%= elementsdanhmuc.getMaDMSP()%>">Xóa</a>
+                        <a href="CapNhatDanhMucServlet?MaDMSPurl=<%= elementsdanhmuc.getMaDMSP()%>">Sửa</a>&nbsp;&nbsp; | &nbsp;&nbsp;
+                        <a href="CapNhatDanhMucServlet?MaDMSPurl=<%= elementsdanhmuc.getMaDMSP()%>">Xóa</a>
                     </center>
                     </td>
                     </tr>     

@@ -16,7 +16,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>check out</title>
+<title>Kiểm tra đơn hàng</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
 	media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -114,7 +114,7 @@
 	<%-- Theo thứ tự --%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="account">
-		<h2 class="account-in">Check out</h2>
+		<h2 class="account-in">Kiểm tra đơn hàng</h2>
 		<form action="HoaDonDatHangServlet" method="POST">
 			<div id="thongtinkhachhangkhidathang">
 				<legend>Thông tin sản phẩm </legend>
