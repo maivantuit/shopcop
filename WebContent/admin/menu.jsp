@@ -19,9 +19,9 @@
                 <li><a href="/doancntt/QuanLyTatCaDonHangServlet">Tất cả đơn hàng</a></li>
                 <li><a href="/doancntt/DanhMucSanPhamServlet">Danh mục sản phẩm</a></li>
                 <li><a href="/doancntt/SanPhamServlet">Sản phẩm</a></li>                                              
-                <li><a href="">Khách Hàng</a></li>                
-                <li><a href="#">Nhân viên kho</a></li>
-                <li><a href="#">Nhân viên giao hàng</a></li>                                                                               
+                 <li><a href="/doancntt/XemKhachHangServlet">Khách Hàng</a></li>                
+                <li><a href="/doancntt/XemNhanVienKhoServlet">Nhân viên kho</a></li>
+                <li><a href="/doancntt/XemNhanVienGiaoHangServlet">Nhân viên giao hàng</a></li>                                                                             
             </ul>
         </div>
     </body>

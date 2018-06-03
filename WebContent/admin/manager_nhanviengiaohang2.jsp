@@ -15,14 +15,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Quản lý khách hàng</title>        
+        <title>Quản lý nhân viên giao hàng</title>        
         <link href="css/mos-style.css" rel='stylesheet' type='text/css' />
     </head>
     <body>
         <%
-            KhachHangDao khachhangdao = new KhachHangDao();
-            ArrayList<KhachHang> listkhachhang =(ArrayList<KhachHang>) request.getAttribute("listKhachHang");
             
+            ArrayList<NhanVien> listNhanVienKho =(ArrayList<NhanVien>) request.getAttribute("listNhanVienKho");
+           
         %>
         
         
@@ -35,27 +35,25 @@
                     <table class="data">
                         <tr class="data">
                             <th class="data" width="30px">STT</th>
-                            <th class="data" >Mã khách hàng</th>
-                            <th class="data" >Tên khách hàng</th>                                                      
-                            <th class="data">Ngày sinh</th> 
-                            <th class="data" width="200px">Địa chỉ</th>     
-                            <th class="data" width="50px">Email</th>  
-                            <th class="data">Điện thoại</th>    
+                            <th class="data" >Mã nhân viên</th>
+                            <th class="data" >Tên nhân viên</th>                                                      
+                            <th class="data">Địa chỉ</th> 
+                            <th class="data" width="200px">Số điện thoại</th>     
+                            <th class="data" width="50px">Email</th>                          
                             
                         </tr>
                     <%
                         int dem=0;
-                        for (KhachHang elementskhachhang : listkhachhang) {
+                        for (NhanVien elementskhachhang : listNhanVienKho) {
                             dem++;                        
                     %>                                                                            
                         <tr class="data">
                             <td class="data" width="30px"><%= dem%></td>
-                            <td class="data"><%= elementskhachhang.getMaKH()%></td>
-                            <td class="data"><%= elementskhachhang.getTenKH()%></td>                               
-                            <td class="data"><%= elementskhachhang.getNgaySinh()%></td> 
-                            <td class="data" width="100px" ><%= elementskhachhang.getDiaChi()%></td> 
-                            <td class="data"><%= elementskhachhang.getEmail()%></td> 
-                            <td class="data"><%= elementskhachhang.getSdt()%></td> 
+                            <td class="data"><%= elementskhachhang.getMaNV()%></td>
+                            <td class="data"><%= elementskhachhang.getTenNV()%></td>                               
+                            <td class="data"><%= elementskhachhang.getDiaChi()%></td> 
+                            <td class="data" width="100px" ><%= elementskhachhang.getSdt()%></td> 
+                            <td class="data"><%= elementskhachhang.getEmail()%></td>                             
                             
                         </tr>     
                      <%}%>   

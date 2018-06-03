@@ -127,6 +127,7 @@ public class HoaDonDAO {
                 hoadon.setMaKH(rs.getInt("MaKH"));
                 hoadon.setNgayDat(rs.getTimestamp("NgayDat"));               
                 hoadon.setDiaChi(rs.getString("DiaChiGiaoHang"));
+                hoadon.setSoDienThoai(rs.getString("SoDienThoai"));
                 hoadon.setNguoiGiao(rs.getString("NhanVienGiaoHang"));
                 hoadon.setNguoiNhan(rs.getString("NguoiNhan"));
                 hoadon.setTongTien(rs.getInt("TongTien"));

@@ -131,6 +131,22 @@
     <servlet-name>XemNhanVienKhoServlet</servlet-name>
     <servlet-class>controller.XemNhanVienKhoServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>XoaDanhMucServlet</servlet-name>
+    <servlet-class>controller.XoaDanhMucServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ThemDanhMucMoiServlet</servlet-name>
+    <servlet-class>controller.ThemDanhMucMoiServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ThemDanhMucMoiServlet</servlet-name>
+    <url-pattern>/ThemDanhMucMoiServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XoaDanhMucServlet</servlet-name>
+    <url-pattern>/XoaDanhMucServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>CapNhatDanhMucServlet</servlet-name>
     <url-pattern>/CapNhatDanhMucServlet</url-pattern>

@@ -50,6 +50,7 @@
 						<th class="data" width="30px">Mã hóa đơn</th>
 						<th class="data" width="30px">Mã khách Hàng</th>
 						<th class="data" width="30px">Tên khách hàng</th>
+						<th class="data" width="30px">Số điện thoại</th>
 						<th class="data" width="30px">Ngày đặt</th>
 						<th class="data" width="30px">Nhân viên giao hàng</th>
 						<th class="data" width="30px">Tổng tiền(VNĐ)</th>
@@ -67,6 +68,7 @@
 						</td>
 						<td class="data"><%=elemhd.getMaKH()%></td>
 						<td class="data"><%=elemhd.getNguoiNhan()%></td>
+						<td class="data"><%=elemhd.getSoDienThoai()%></td>
 						<td class="data"><%=elemhd.getNgayDat()%></td>
 						<td class="data"><%=elemhd.getNguoiGiao()%></td>
 						<td class="data"><%=NumberFormat.getInstance().format(elemhd.getTongTien())%></td>

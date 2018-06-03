@@ -19,7 +19,7 @@ public class DanhMucDAO {
     // lấy database danh mục sản phẩm:
     public ArrayList<DanhMuc> getListDanhMuc() {
         Connection connect = DBConnect.getConnection();
-        String sql = "select * from DanhMucSanPham";
+        String sql = "select * from DanhMucSanPham where Co='C'";
         ArrayList<DanhMuc> list = new ArrayList<DanhMuc>();
         try {
             PreparedStatement ps = connect.prepareCall(sql);
@@ -54,6 +54,24 @@ public class DanhMucDAO {
         return danhmuc;
        
     }
+    public boolean themMoiDanhMucSanPham(String tenDMSP) {
+ 		Connection con = DBConnect.getConnection();
+ 		String sql = null;
+ 		try {			
+ 			sql = String.format("insert into DanhMucSanPham(TenDMSP,Co) " +
+ 					"values (N'%s','C')",tenDMSP);
+ 		} catch (Exception e) {
+ 			e.printStackTrace();
+ 		}
+ 		try {
+ 			Statement stmt = con.createStatement();
+ 			stmt.executeUpdate(sql);
+ 			return true;
+ 		} catch (Exception e) {
+ 			e.printStackTrace();
+ 		}
+ 		return false;
+ 	}
 
 
     // thêm mới một danh mục dữ liệu:
@@ -113,6 +131,20 @@ public class DanhMucDAO {
         }
         return false;
     }
+    public static boolean deleteDanhMucSanPham(String maMDSP){
+ 		Connection con = DBConnect.getConnection();
+ 		String sql = String.format("update DanhMucSanPham " +
+ 				"set Co = 'K'" +
+ 				"where MaDMSP = '%s'",maMDSP);
+ 		try {
+ 			Statement stmt = con.createStatement();
+ 			stmt.executeUpdate(sql);
+ 			return true;
+ 		} catch (Exception e) {
+ 			e.printStackTrace();
+ 		}
+ 		return false;
+ 	}
 
     public static void main(String[] args) throws SQLException {
 

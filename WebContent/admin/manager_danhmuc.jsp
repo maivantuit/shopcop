@@ -16,6 +16,9 @@
     <body>
         <%
         ArrayList<DanhMuc> listdanhmuc = (ArrayList<DanhMuc>)request.getAttribute("listdanhmuc");
+        String mesXoa = (String)request.getAttribute("mesXoa");
+
+    	String mes = (String)request.getAttribute("mes");
         %>
         <jsp:include page="header.jsp"></jsp:include>
             <div id="wrapper">
@@ -23,7 +26,7 @@
                 <div id="rightContent">
                     <h3>Quản lý danh mục</h3>       
 
-                    <a href="insert_danhmuc.jsp">Thêm danh mục mới</a>
+                    <a href="/doancntt/ThemDanhMucMoiServlet">Thêm danh mục mới</a>
 
                     <table class="data">
                         <tr class="data">
@@ -44,7 +47,7 @@
                         <td class="data" width="90px">
                     <center>
                         <a href="CapNhatDanhMucServlet?MaDMSPurl=<%= elementsdanhmuc.getMaDMSP()%>">Sửa</a>&nbsp;&nbsp; | &nbsp;&nbsp;
-                        <a href="CapNhatDanhMucServlet?MaDMSPurl=<%= elementsdanhmuc.getMaDMSP()%>">Xóa</a>
+                        <a href="XoaDanhMucServlet?MaDMSPurl=<%= elementsdanhmuc.getMaDMSP()%>">Xóa</a>
                     </center>
                     </td>
                     </tr>     
@@ -56,5 +59,23 @@
 
             <jsp:include page="footer.jsp"></jsp:include> 
         </div>
+        <%
+			if(mesXoa!=null){
+		%>
+			<script type="text/javascript">
+				alert('Xóa danh mục sản phẩm thành công!');
+			</script>
+		<%
+			}
+		%>
+		<%
+			if(mes!=null){
+		%>
+			<script type="text/javascript">
+				alert('Thêm danh mục sản phẩm thành công!');
+			</script>
+		<%
+			}
+		%>
     </body>
 </html>
