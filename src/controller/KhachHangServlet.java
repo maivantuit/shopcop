@@ -98,8 +98,9 @@ public class KhachHangServlet extends HttpServlet {
 													// tục tại header
 				url = "/TrangChuKhachHangServlet";
 			} else {
-				request.setAttribute("error", "Error email or password!");
-				url = "/TrangChuKhachHangServlet";
+				String dangNhapTB = "Đăng nhập thất bại!";
+				request.setAttribute("dangNhapTB", dangNhapTB);
+				url = "/login.jsp";
 			}
 			break;
 		}

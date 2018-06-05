@@ -113,9 +113,11 @@
 
 	<%-- Theo thứ tự --%>
 	<jsp:include page="header.jsp"></jsp:include>
+	
 	<div class="account">
+	<h3> <a href="/doancntt/TrangChuKhachHangServlet"> << Tiếp tục mua hàng</a></h3>
 		<h2 class="account-in">Kiểm tra đơn hàng</h2>
-		<form action="HoaDonDatHangServlet" method="POST">
+		<form action="HoaDonDatHangServlet" method="POST">			
 			<div id="thongtinkhachhangkhidathang">
 				<legend>Thông tin sản phẩm </legend>
 				<table class="data">

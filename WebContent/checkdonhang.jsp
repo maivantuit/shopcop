@@ -14,6 +14,7 @@
 <%@page import="modelclasses.Item"%>
 <%@page import="modelclasses.KhachHang"%>
 <%@page import="modelclasses.GioHang"%>
+<%@page import="java.text.NumberFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -53,7 +54,7 @@
                             <th class="data" >Mã đơn hàng</th> <!--thêm link-->
                             <th class="data">Ngày mua</th>                            
                             <th class="data">Tổng tiền</th>  
-                            <th class="data">Trạng thái đơn hàng</th>                               
+                                                         
                         </tr>
                         <%
                             int dem = 0;
@@ -72,8 +73,8 @@
                         %>  
                             </td>       
                         <td class="data"><%= elemhd.getNgayDat()%></td>
-                        <td class="data" ><a style="color: blue"><%= elemhd.getTongTien()%></a> VNĐ</td>                            
-                        <td class="data"><%= elemhd.getTrangthaigiaoHang()%></td>  
+                        <td class="data" ><a style="color: blue"><%=NumberFormat.getInstance().format(elemhd.getTongTien())  %></a> VNĐ</td>                            
+                        
                                               
                         </tr>     
                         <%}%>

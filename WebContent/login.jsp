@@ -11,7 +11,9 @@
         <title>Đăng nhập trang chủ</title>
     </head>
     <body>
-    
+    	<%
+    		String dangNhapTB = (String)request.getAttribute("dangNhapTB");
+    	%>
         <%-- Theo thứ tự --%>
         <jsp:include page="header.jsp"></jsp:include>       
             <div class="account">
@@ -35,5 +37,14 @@
                 </form>
             </div>
         <jsp:include page="footer.jsp"></jsp:include>
+        <%
+        	if(dangNhapTB!=null){
+        %>
+        <script type="text/javascript">
+        	alert('Đăng nhập thất bại, vui lòng kiểm tra lại Email và Mật Khẩu!');
+        </script>
+        <%
+        	}
+        %>
     </body>
 </html>
