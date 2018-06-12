@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Admin</title>        
+        <title>Trang chủ Admin</title>        
         <link href="css/mos-style.css" rel='stylesheet' type='text/css' />
         
     </head>

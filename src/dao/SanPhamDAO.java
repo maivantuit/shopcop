@@ -76,7 +76,7 @@ public class SanPhamDAO {
     // lấy danh sách sản phẩm:
     public static ArrayList<SanPham> getListSanPham(int madanhmuc) {
         Connection connect = DBConnect.getConnection();
-        String sql = "select * from SanPham where MaDMSP='" + madanhmuc + "'";
+        String sql = "select * from SanPham where and MaDMSP='" + madanhmuc + "'";
         ArrayList<SanPham> list = new ArrayList<SanPham>();
         try {
             PreparedStatement ps = connect.prepareCall(sql);

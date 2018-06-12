@@ -9,6 +9,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Nhập hàng</title>
 <link href="css/mos-style.css" rel='stylesheet' type='text/css' />
+<script type="text/javascript">
+function validateForm() {
+	var hovaten = document.getElementById("masanpham").value;
+	if (hovaten == null || hovaten == "") {
+		alert("Vui lòng chọn sản phẩm!");
+		return false;
+	}
+}
+</script>
 </head>
 <body>
 <%
@@ -56,7 +65,7 @@
 						<tr>
 							<td>Mã sản phẩm</td>
 							<td>
-								<select name="masanpham">
+								<select id="masanpham" name="masanpham">
 									<option value="">--Chọn sản phẩm--</option>
 									<%
 										for(SanPham item: listMaSP){
@@ -77,7 +86,7 @@
 						<tr>
 							<td></td>
 							<td>
-								<button type="submit" value="submit" name="submit">Nhập hàng</button>
+								<button  onclick = "validateForm()" type="submit" value="submit" name="submit">Nhập hàng</button>
 							</td>
 						</tr>
 					</table>

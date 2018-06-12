@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Warehousestaff</title>        
+        <title>Trang chủ nhân viên kho</title>        
         <link href="css/mos-style.css" rel='stylesheet' type='text/css' />
         
     </head>

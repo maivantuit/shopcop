@@ -60,8 +60,8 @@
 					</tr>
 					<%
 						int dem = 0;
-														for (HoaDon elemhd : listhoadon) {
-														dem++;
+						for (HoaDon elemhd : listhoadon) {
+							dem++;
 					%>
 					<tr class="data">
 						<td class="data" width="30px"><%=dem%></td>

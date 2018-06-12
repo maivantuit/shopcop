@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login of deliveryman</title>                
+        <title>Đăng nhập nhân viên giao hàng</title>                
         <link href="css/mos-style.css" rel='stylesheet' type='text/css' />
     </head>
     <body>
